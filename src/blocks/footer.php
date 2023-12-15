@@ -6,6 +6,12 @@
     p{
         font-size: 12px;
     }
+    footer {
+    width: 100%;
+    position : fixed;
+    bottom : 0;
+
+    }
 </style>
 
 <footer>
