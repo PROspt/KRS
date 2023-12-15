@@ -61,5 +61,32 @@
             <input type="submit" value="Зарегистрироваться">
         </form>
     </div>
+
+
+
+    <footer>
+      <div class="footer-logo">
+         логотип
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+      </div>
+      <div class="site-nav">
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Услуги</a>
+        <a href="#">Контакты</a>
+      </div>
+      <div class="footer-buttons">
+
+        <a href="#">Кнопка 1</a>
+        <a href="#">Кнопка 2</a>
+        <a href="#">Кнопка 3</a>
+      </div>
+      <p>&copy; 2024 РОГАТЫЙ СКОТ. Все права защищены.</p>
+    </footer>
+
 </body>
 </html>
