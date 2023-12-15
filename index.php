@@ -10,6 +10,9 @@
 <body>
     <div class="container">
         <h2>Регистрация нового чела</h2>
+        <?php
+            include("src/actions/db_connect.php");
+        ?>
         
         <form action="register.php" method="post">
             <label for="name">Имя</label>
