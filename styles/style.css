@@ -90,6 +90,13 @@ label {
   color: black;
 }
 
+.button-text {
+  background-color: #fff;
+  align-self: stretch;
+  padding: 0px 30px 19px 30px;
+  font: 700 16px Open Sans, sans-serif;
+}
+
 #blur_reg{
   backdrop-filter: blur(5px);
 }
