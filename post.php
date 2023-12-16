@@ -38,11 +38,14 @@ $response = sendPostRequest('https://api.vk.com/method/wall.post', $params);
 $result = json_decode($response, true);
 
 // Проверка результата
-if ($result && isset($result['response'])) {
-  echo 'Пост успешно добавлен';
-} else {
-  echo 'Ошибка при добавлении поста: ' . $response;
-}
+
+
+if ($result && is_array($result) && isset($result['response'])) {
+    echo 'Пост успешно добавлен';
+  } else {
+    echo 'Ошибка при добавлении поста: ' . $response;
+    echo $response;
+  }
 
 // Функция для отправки POST-запросов
 function sendPostRequest($url, $params) {
