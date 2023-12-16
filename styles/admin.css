@@ -1,0 +1,25 @@
+.block h2{
+    color: #000;
+    font-family: Open Sans;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.div-navbar-item{
+    width: 338px;
+    height: 66px;
+    color: #616161;
+    font-family: Open Sans;
+    font-size: 26.711px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    flex-shrink: 0;
+}
+
+.navbar-icon path{
+
+    stroke: #616161
+}

@@ -13,6 +13,6 @@
   $stmt->execute();
   $result = $stmt->get_result();
   $row = $result->fetch_assoc();    
-  print_r($row);
+  print_r($row);  
 
 ?>
