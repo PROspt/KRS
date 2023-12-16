@@ -5,16 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/master.css">
+    <!-- <link rel="stylesheet" href="styles/master.css"> -->
     <title>KRS</title>
     
 </head>
+<?php
+            require_once("src/blocks/header.php");
+    ?>
 <body>
     <div class="container">
-        <h2>Регистрация нового чела</h2>
+    <header class="main-container">
+  <section class="div">
+    <div class="div-2">
+      <div class="column">
+        <img loading="lazy" class="img" src="images/image_glav.svg"/>
+      </div>
+
+      <div class="column-2">
+      <header class="main-header">Стань разработчиком в нашей компании</header>
+      </div>
+    </div>
+  </section>
+</header>
         <?php
             include("src/actions/db_connect.php");
         ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <section id="activity">
             <div class="container">
@@ -72,19 +108,13 @@
                 </div>
             </div>
         </section>
-        
-        <form action="register.php" method="post">
-            <label for="name">Имя</label>
-            <input type="text" name="name" id="name" required>
-            
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
-            
-            <label for="password">Пароль</label>
-            <input type="password" name="password" id="password" required>
-            
-            <input type="submit" value="Зарегистрироваться">
-        </form>
+
     </div>
+
+    <?php
+            require_once("src/blocks/footer.php");
+    ?>
+
+
 </body>
 </html>

@@ -2,7 +2,7 @@
   mb_internal_encoding("UTF-8");
   $host_db = "81.31.246.222";
   $user_db = "root";
-  $password_db = "3r0to\$z+)9LyZc";
+  $password_db = "root8934";
   $name_db = "devrel";
 
   $connection_db = new mysqli($host_db, $user_db, $password_db, $name_db);
