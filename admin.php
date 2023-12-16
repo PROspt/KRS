@@ -92,7 +92,7 @@
 
 
  <!-- Здесь БАЗА-->
-<div class="info-block" id="databaseBlock">
+<div class="info-block" id="databaseBlock" style="display: none">
 <div class="div-table">
                             <table class="table">
                             <thead>
@@ -107,6 +107,7 @@
                                     <td scope="row"><?= $row['id']; ?></td>
                                     <td scope="row"><?= $row['first_name']; ?></td>
                                     <td scope="row"><?= $row['last_name']; ?></td>
+
                                     </tr>
                                 <?php endforeach;?>
                             </tbody>
