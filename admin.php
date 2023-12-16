@@ -5,6 +5,10 @@
     $stmt = $pdo->prepare("SELECT * FROM users");
     $stmt->execute();
     $users = $stmt->fetchAll();
+
+    $stmt = $pdo->prepare("SELECT * FROM user_event");
+    $stmt->execute();
+    $user_event = $stmt->fetchAll();
     
     
 ?>
@@ -83,6 +87,7 @@
                                     <td scope="row"><?= $row['id']; ?></td>
                                     <td scope="row"><?= $row['first_name']; ?></td>
                                     <td scope="row"><?= $row['last_name']; ?></td>
+                                    <td scope="row"><?= $row['skill']; ?></td>
                                     </tr>
                                 <?php endforeach;?>
                             </tbody>
@@ -108,6 +113,14 @@
                                     <td scope="row"><?= $row['id']; ?></td>
                                     <td scope="row"><?= $row['first_name']; ?></td>
                                     <td scope="row"><?= $row['last_name']; ?></td>
+                                    <td scope="row"><?php $sum = 0;
+                                    foreach($user_event as $row2) {
+                                      if ($row2["id_user"] == $row['id']) {
+                                        $sum += $row2["exp"];
+                                      }
+                                    } 
+                                    
+                                    echo $sum;?></td>
 
                                     </tr>
                                 <?php endforeach;?>
@@ -166,6 +179,7 @@
                                     <td scope="row"><?= $row['id']; ?></td>
                                     <td scope="row"><?= $row['first_name']; ?></td>
                                     <td scope="row"><?= $row['last_name']; ?></td>
+                                    <td scope="row"><?= $row['skill']; ?></td>
                                     </tr>
                                 <?php endforeach;?>
                             </tbody>
