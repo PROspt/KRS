@@ -21,21 +21,46 @@
                 <div class="inner">
                     <h2 class="heading">Мероприятия</h2>
                     <div class="cards">
-                        <div class="card">
+                        <div class="card flex">
                             <div class="left">
                                 <h3 class="heading-card">DevRel Hack 2.0</h3>
-                                <ul class="rules">
-                                    <li class="item">
+                                <ul class="rules list">
+                                    <li class="item flex">
                                         <div class="icon"></div>
-                                        Хакатон
+                                        <div>Хакатон</div>
                                     </li>
-                                    <li class="item">
+                                    <li class="item flex">
                                         <div class="icon"></div>
-                                        Команды от 2 до 5 участников
+                                        <div>Команды от 2 до 5 участников</div>
                                     </li>
-                                    <li class="item">
+                                    <li class="item flex">
                                         <div class="icon"></div>
-                                        200 000 руб и другие призы 
+                                        <div>200 000 руб и другие призы</div> 
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <img src="images/1.png" alt="баннер">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cards">
+                        <div class="card flex">
+                            <div class="left">
+                                <h3 class="heading-card">DevRel Hack 2.0</h3>
+                                <ul class="rules list">
+                                    <li class="item flex">
+                                        <div class="icon"></div>
+                                        <div>Хакатон</div>
+                                    </li>
+                                    <li class="item flex">
+                                        <div class="icon"></div>
+                                        <div>Команды от 2 до 5 участников</div>
+                                    </li>
+                                    <li class="item flex">
+                                        <div class="icon"></div>
+                                        <div>200 000 руб и другие призы</div> 
                                     </li>
                                 </ul>
                             </div>
