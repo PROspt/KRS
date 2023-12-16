@@ -65,7 +65,7 @@ label {
 
 /* Регистрация */
 
-.registr-container {
+.registr-container, .login-container {
  
   display: flex;
   flex-direction: column;
@@ -80,6 +80,10 @@ label {
   bottom: 0;
   margin: auto;
 
+}
+
+.registr-container{
+  display: none;
 }
 #blur_reg{
   backdrop-filter: blur(5px);

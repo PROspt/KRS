@@ -44,9 +44,6 @@
   }
 </style>
 
-
-
-
 <header class="header">
   <div class="head-container">
         <a href="index.php">  
@@ -117,7 +114,7 @@
             $query = "SELECT * FROM users WHERE login='$login'";
             $result = mysqli_query($db, $query) or die(mysqli_error($link));
             $user = mysqli_fetch_assoc($result);
-            if(empty($user) || password_verify($password, $user['password'])){
+            if(empty($user) || $password != $user['password']){
                 $error = 'Неверный логин или пароль';
             } else {
                 $_SESSION['user'] = $user;
@@ -141,11 +138,28 @@
         <?php
     } else {
 ?>
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-    <input type="text" name="login" placeholder="login" required>
-    <input type="password" name="password" placeholder="Пароль" required>
-    <input type="submit" name="submit-btn" value="Войти">
+
+
+
+
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="login-container">
+    <h1 class="title_reg">Вход в систему</h1>
+    <section class="email">
+      <label for="email" class="label">Адрес эл. почты</label>
+      <input type="text" name="login" required class="input">
+    </section>
+    <section class="password">
+      <label for="password" class="label">Пароль</label>
+      <input type="password" name="password" class="input" required>
+      <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
+    </section>
+    <section>
+    <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
+    <p class="secondary-text">Не получается войти?</p> 
+    </section>
+    
 </form>
+
 <?php 
     }
 
