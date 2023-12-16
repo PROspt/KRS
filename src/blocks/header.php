@@ -74,10 +74,10 @@
           $login = $_SESSION['user']['login'];
       ?>            
       <!-- Отображаем ссылку на выход, если пользователь авторизован -->
-      <div class="head-login">
+      <a href="?log=out" class="head-login">
         <img src="images/person.svg" alt="">
-        <a href="?log=out">Выход</a>
-      </div>
+        Выход
+      </a>
       <?php
           if($_GET['log'] == 'out'){
             $_SESSION['user'] = null;
@@ -85,12 +85,10 @@
         } else { 
       ?>
       <!-- Отображаем кнопку входа, если пользователь не авторизован -->
-      <div class="head-login">
+      <a href="?log=aut" class="head-login">
         <img src="images/person.svg" alt="">
         Вход
-        <img src="images/person.svg" alt="">
-        <a href="?log=aut">Вход</a>
-      </div>
+      </a>
       <?php
         }
       ?>
@@ -153,11 +151,10 @@
       <input type="password" name="password" class="input" required>
       <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
     </section>
-    <section>
+    <section class="">
     <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
     <p class="secondary-text">Не получается войти?</p> 
     </section>
-    
 </form>
 
 <?php 
