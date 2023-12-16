@@ -13,8 +13,8 @@
 </body>
 </html>
 <?php
-            require_once("src/blocks/header.php");
-    ?>
+  require_once("src/blocks/header.php");
+?>
 <body>
     
     <div class="container">
