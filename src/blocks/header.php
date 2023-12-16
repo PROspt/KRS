@@ -20,8 +20,7 @@
     padding-bottom: 15px;
   }
   .head-container{
-    
-    width: 1410px;
+    max-width: 1410px;
     display: flex;
     margin: auto;
     justify-content: space-between;
@@ -47,7 +46,7 @@
 
 <header class="header">
   <div class="head-container">
-    <img src="/images/logo-black.svg" alt="">
+    <img src="images/logo-black.svg" alt="">
     <div class="head-navbar">
       <?php
         include("src/actions/db_connect.php");
@@ -79,14 +78,14 @@
       ?>
       <!-- <a href="#Sing" class="login white">Войти</a> -->
       <div class="head-login">
-        <img src="/images/person.svg" alt="">
+        <img src="images/person.svg" alt="">
         Вход
       </div>
       <?php
         }
       ?>
       <div class="head-lang">
-          <img src="/images/lang.svg" alt="">
+          <img src="images/lang.svg" alt="">
       </div>
     </div>
   </div>
