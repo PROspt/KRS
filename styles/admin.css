@@ -8,6 +8,10 @@
 }
 
 .div-navbar-item{
+    padding-left: 10px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
     width: 338px;
     height: 66px;
     color: #616161;
@@ -18,7 +22,13 @@
     line-height: normal;
     flex-shrink: 0;
 }
+.div-navbar-item:hover{
+    background-color: #8e8e8e;
+}
 
+.div-navbar-item-enable{
+    background-color: #8E78F7;
+}
 .navbar-icon path{
 
     stroke: #616161
