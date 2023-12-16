@@ -9,6 +9,7 @@
     
 </style>
 
+</main>
 <footer>
       <div class="footer-logo">
         <img src="/images/logo-white.png" alt="">
