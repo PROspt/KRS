@@ -14,12 +14,41 @@
     ?>
 <body>
     <div class="container">
-        <h2>Регистрация нового чела</h2>
+    <header class="main-container">
+  <section class="div">
+    <div class="div-2">
+      <div class="column">
+        <img loading="lazy" class="img" src="images/image_glav.svg"/>
+      </div>
+
+      <div class="column-2">
+      <header class="main-header">Стань разработчиком в нашей компании</header>
+      </div>
+    </div>
+  </section>
+</header>
         <?php
             include("src/actions/db_connect.php");
         ?>
 
-<header class="main-header">Стань разработчиком в нашей компании</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
