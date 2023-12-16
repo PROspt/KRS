@@ -97,7 +97,6 @@
       </div>
     </div>
 
-    <!-- <input type="submit" name="submit-btn" value="Войти разбойник" class="submit-btn" data-modal-target="authorization-modal"> -->
   </div>
 </header>
 
@@ -138,6 +137,7 @@
         <?php
     } else {
 ?>
+
 
 
 
