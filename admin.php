@@ -1,5 +1,11 @@
 <?php
     session_start();
+    
+    include("src/actions/db_connect.php");
+    $stmt = $pdo->prepare("SELECT * FROM users");
+    $stmt->execute();
+    $users = $stmt->fetchAll();
+    
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +25,6 @@
     <div class="container">
         <div class="upr-block">
                         <div class="upr-header"><h2>Управление</h2>  </div>
-                        <?   
-    $stmt = $db->prepare("SELECT * FROM users");
-  $stmt->execute(); 
-  $result = $stmt->get_result();
-  $row = $result->fetch_assoc();    
-  ?>
                         <div class="upr">   
                             <div class="div-navbar">
                                 <div class="div-navbar-item">
@@ -67,23 +67,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>город</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
+                            <?php foreach($users as $row):?>
+                                    <tr>
+                                    <td scope="row"><?= $row['id']; ?></td>
+                                    <td scope="row"><?= $row['first_name']; ?></td>
+                                    <td scope="row"><?= $row['last_name']; ?></td>
+                                    </tr>
+                                <?php endforeach;?>
                             </tbody>
                             </table>
                             </div>  

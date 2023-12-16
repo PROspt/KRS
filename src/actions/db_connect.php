@@ -7,17 +7,12 @@
 
   $db = new mysqli($host_db, $user_db, $password_db, $name_db);
   // mysqli_set_charset($connection_db, "utf8");
+  $pdo = new PDO('mysql:host=81.31.246.222; port=3306; dbname=devrel', 'root', 'root8934');
 
   $stmt = $db->prepare("SELECT * FROM users");
-  // $stmt->bind_param("s", $email);
   $stmt->execute();
-  // $result = $stmt->get_result();
-  // $row = $result->fetch_assoc();    
-  // print_r($row);  
   $result = $stmt->get_result();
-  // $row = $result->fetch_assoc();    
-  // print_r($row);
   $row = $result->fetch_assoc();    
-  // print_r($row);  
+
 
 ?>
