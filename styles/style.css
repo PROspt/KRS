@@ -45,7 +45,7 @@ label {
 .main-header {
     color: #000;
     margin-top: 106px;
-    font: 800 82px Open Sans, sans-serif;
+    font: 800 68px Open Sans, sans-serif;
   }
   @media (max-width: 991px) {
     .main-header {
@@ -65,37 +65,47 @@ label {
 
 /* Регистрация */
 
-
-
 .registr-container {
-  align-self: stretch;
+ 
   display: flex;
-  width: 100%;
   flex-direction: column;
-  padding: 0 31px;
-}
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 35vw;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 
+}
+#blur_reg{
+  backdrop-filter: blur(5px);
+}
 .title_reg {
   color: #000;
-  align-self: stretch;
   font: 700 27px Open Sans, sans-serif;
+  background: #fff;
 }
 
 .email,
 .password,
 .confirm-password {
   color: #9a9a9a;
-  border-radius: 10px;
-  border: 1px solid #616161;
   background-color: #fff;
   align-self: stretch;
-  margin-top: 29px;
-  justify-content: center;
-  align-items: start;
   padding: 19px 60px 19px 30px;
   font: 700 16px Open Sans, sans-serif;
 }
 
+.email input,
+.password input,
+.confirm-password input{
+  border: #000 2px solid;
+  border-radius: 15px;
+}
 .label {
   margin-bottom: 6px;
   font-weight: 700;
@@ -103,34 +113,31 @@ label {
 
 .input {
   width: 100%;
+  border: none;
 }
 
 .checkbox-container {
-  align-self: stretch;
   display: flex;
-  margin-top: 39px;
   align-items: center;
-  justify-content: space-between;
   gap: 17px;
 }
 
 .checkbox {
   border-radius: 4px;
-  border: 1px solid #616161;
   background-color: #fff;
   display: flex;
   width: 22px;
   height: 22px;
   flex-direction: column;
-  margin: auto 0;
+  margin: 0;
 }
 
 .checkbox-label {
   color: #000;
-  align-self: stretch;
   flex-grow: 1;
   flex-basis: auto;
   font: 600 16px Open Sans, sans-serif;
+  margin-left: 10px;
 }
 
 .submit-btn {
@@ -139,9 +146,6 @@ label {
   border-radius: 10px;
   background-color: #8e78f7;
   align-self: stretch;
-  margin-top: 42px;
-  justify-content: center;
-  align-items: center;
   padding: 16px 60px;
   font: 700 16px Open Sans, sans-serif;
   cursor: pointer;
@@ -150,38 +154,14 @@ label {
 
 .secondary-text {
   color: #3a3a3a;
-  align-self: center;
-  margin-top: 22px;
   white-space: nowrap;
   font: 600 16px Open Sans, sans-serif;
 }
 
 
 
+
 /* Регистрация */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
