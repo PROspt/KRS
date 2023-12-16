@@ -11,6 +11,6 @@
     echo "Сорян";
   }
 
-  // $results = musqli_query("SELECT first_name FROM users");
+  // $results = mysqli_query("SELECT first_name FROM users");
   // var_dump($results);
 ?>
