@@ -49,53 +49,42 @@
   <div class="head-container">
     <img src="/images/logo-black.svg" alt="">
     <div class="head-navbar">
-
-    <?php
-      if(!empty($_POST['log'])) {
-        if(!empty($_POST['password']) and !empty($_POST['email'])) {
-          $email = $_POST['email'];
-          $password = $_POST['password'];
-          $queryr = "SELECT * FROM users WHERE email='$email'";
-          $result = mysqli_query($link, $queryr) or die(mysqli_error($link));
-          $user = mysqli_fetch_assoc($resultat);
-          $_SESSION['user'] = $user;
-          if(empty($user) || !password_verify($password,$user['password'])){
-          $error[] = 'Неверный логин или пароль';
-          } 
-        }      
-      }
-      if (!empty($_SESSION['user'])){
-        echo $_SESSION['user']['name'];
-    ?>            
-    <!-- <a href=""> Выход </a> -->
-    <div class="head-login">
-      <img src="/images/person.svg" alt="">
-      Выход
-    </div>
-    <?php
-      if($_GET['log'] == 'out'){
-        $_SESSION['user'] = null;
-      }} else {
-    ?>
-    <!-- <a href="#Sing" class="login white">Войти</a> -->
-    <div class="head-login">
-      <img src="/images/person.svg" alt="">
-      Вход
-    </div>
-    <?php
-      }
-    ?>
-
-      <!-- <div class="head-login">
+      <?php
+        include("src/actions/db_connect.php");
+        if(!empty($_POST['login'])) {
+          if(!empty($_POST['password']) and !empty($_POST['email'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $queryr = "SELECT * FROM users WHERE email='$email'";
+            $result = mysqli_query($link, $queryr) or die(mysqli_error($link));
+            $user = mysqli_fetch_assoc($resultat);
+            $_SESSION['user'] = $user;
+            if(empty($user) || !password_verify($password,$user['password'])){
+            $error[] = 'Неверный логин или пароль';
+            } 
+          }      
+        }
+        if (!empty($_SESSION['user'])){
+          echo $_SESSION['user']['name'];
+      ?>            
+      <!-- <a href=""> Выход </a> -->
+      <div class="head-login">
         <img src="/images/person.svg" alt="">
         Выход
       </div>
-
+      <?php
+        if($_GET['log'] == 'out'){
+          $_SESSION['user'] = null;
+        }} else {
+      ?>
+      <!-- <a href="#Sing" class="login white">Войти</a> -->
       <div class="head-login">
         <img src="/images/person.svg" alt="">
         Вход
-      </div> -->
-
+      </div>
+      <?php
+        }
+      ?>
       <div class="head-lang">
           <img src="/images/lang.svg" alt="">
       </div>
