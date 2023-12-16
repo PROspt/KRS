@@ -84,6 +84,12 @@ label {
 .login-container{
   display:none;
 }
+
+.head-login {
+  text-decoration: none;
+  color: black;
+}
+
 #blur_reg{
   backdrop-filter: blur(5px);
 }
