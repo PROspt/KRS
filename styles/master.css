@@ -125,3 +125,7 @@ h3.heading-card {
 .in-block {
   display: inline-block;
 }
+
+.card {
+  background-color: #fff;
+}

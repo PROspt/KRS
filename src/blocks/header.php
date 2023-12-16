@@ -76,7 +76,7 @@
       <!-- Отображаем ссылку на выход, если пользователь авторизован -->
       <a href="?log=out" class="head-login">
         <img src="images/person.svg" alt="">
-        Выход
+        <input type="submit" name="submit-btn" value="Выйти" class="submit-btn" data-modal-target="authorization-modal">
       </a>
       <?php
           if($_GET['log'] == 'out'){
@@ -87,7 +87,7 @@
       <!-- Отображаем кнопку входа, если пользователь не авторизован -->
       <a href="?log=aut" class="head-login">
         <img src="images/person.svg" alt="">
-        Вход
+        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal">
       </a>
       <?php
         }
@@ -96,6 +96,8 @@
         <img src="images/lang.svg" alt="">
       </div>
     </div>
+
+    <!-- <input type="submit" name="submit-btn" value="Войти разбойник" class="submit-btn" data-modal-target="authorization-modal"> -->
   </div>
 </header>
 
@@ -140,6 +142,8 @@
 
 
 
+<<<<<<< HEAD
+=======
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="login-container">
     <h1 class="title_reg">Вход в систему</h1>
     <section class="email">
@@ -157,6 +161,7 @@
     </section>
 </form>
 
+>>>>>>> f1a0876ce8cea6424e33eaf66a41cbe29021073d
 <?php 
     }
 
