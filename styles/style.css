@@ -29,7 +29,7 @@ h2.heading {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background: linear-gradient(to top left, powderblue, pink)
 }
 h2 {
     text-align: center;
@@ -73,7 +73,7 @@ label {
   justify-content: center;
   height: 100vh;
   width: 35vw;
-  position: absolute;
+
   left: 0;
   right: 0;
   top: 0;
@@ -81,9 +81,8 @@ label {
   margin: auto;
 
 }
-
-.registr-container{
-  display: none;
+.login-container{
+  display:none;
 }
 #blur_reg{
   backdrop-filter: blur(5px);
