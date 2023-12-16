@@ -13,54 +13,58 @@ if ($_FILES['photo']['size'] > 0) {
   $photo = $_FILES['photo'];
 
   // Функция для загрузки фотографии на сервер VK и получения ее ID
-  $uploadUrlResponse = json_decode($uploadUrl, true); // Парсим ответ сервера
+  $uploadUrlResponse = callAPI('photos.getWallUploadServer', array('access_token' => $accessToken, 'v' => '5.131'));
   $uploadUrl = $uploadUrlResponse['response']['upload_url'];
-  // Загрузка фотографии на сервер VK
-  $photoData = ['photo' => new CURLFile($photo['tmp_name'])];
-  $uploadResult = json_decode(sendPostRequest($uploadUrl, $photoData), true);
 
-  // Сохранение загруженной фотографии на сервере VK  
-  $saveResult = sendPostRequest("https://api.vk.com/method/photos.saveWallPhoto?access_token={$accessToken}&server={$uploadResult['server']}&photo={$uploadResult['photo']}&hash={$uploadResult['hash']}&v=5.131", []);
-  $saveResultJson = json_decode($saveResult, true);
-  $photoId = $saveResultJson['response'][0]['id'];
+  // Загрузка фотографии на сервер VK
+  $photoData = array('photo' => new CURLFile($photo['tmp_name']));
+  $uploadResult = json_decode(callAPI($uploadUrl, $photoData), true);
+
+  // Сохранение загруженной фотографии на сервере VK
+  $saveResult = callAPI('photos.saveWallPhoto', array(
+    'access_token' => $accessToken,
+    'server' => $uploadResult['server'],
+    'photo' => $uploadResult['photo'],
+    'hash' => $uploadResult['hash'],
+    'v' => '5.131'
+  ));
+  $photoId = $saveResult['response'][0]['id'];
 }
 
 // Добавление поста
-$params = [
-  'owner_id' => -$groupId,
+$params = array(
+  'owner_id' => '-' . $groupId,
   'message' => $message,
-  'attachments' => $photoId !== '' ? 'photo'.$groupId.'_'.$photoId : '',
+  'attachments' => $photoId !== '' ? 'photo' . $groupId . '_' . $photoId : '',
   'access_token' => $accessToken,
   'v' => '5.131'
-];
+);
 
-$response = sendPostRequest('https://api.vk.com/method/wall.post', $params);
-$result = json_decode($response, true);
+$response = callAPI('wall.post', $params);
 
 // Проверка результата
+if (isset($response['response'])) {
+  echo 'Пост успешно добавлен';
+} else {
+  echo 'Ошибка при добавлении поста: ' . $response;
+  echo $response;
+}
 
+// Функция для отправки API-запросов к серверу VK
+function callAPI($method, $params) {
+  $url = 'https://api.vk.com/method/' . $method;
+  $params['access_token'] = $params['access_token'] ?? $GLOBALS['accessToken'];
+  $params['v'] = $params['v'] ?? '5.131';
 
-if ($result && is_array($result) && isset($result['response'])) {
-    echo 'Пост успешно добавлен';
-  } else {
-    echo 'Ошибка при добавлении поста: ' . $response;
-    echo $response;
-  }
-
-// Функция для отправки POST-запросов
-function sendPostRequest($url, $params) {
-  $postData = http_build_query($params);
-
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_POST, true);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+  $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
+  curl_setopt($ch, CURLOPT_POST, true);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
   $response = curl_exec($ch);
   curl_close($ch);
 
-  return $response;
+  return json_decode($response, true);
+
 }
 
 
