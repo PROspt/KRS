@@ -151,7 +151,7 @@
       <input type="password" name="password" class="input" required>
       <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
     </section>
-    <section class="">
+    <section class="button-text">
     <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
     <p class="secondary-text">Не получается войти?</p> 
     </section>
