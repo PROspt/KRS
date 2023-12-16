@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/master.css">
+    <!-- <link rel="stylesheet" href="styles/master.css"> -->
     <title>KRS</title>
     
 </head>
@@ -18,6 +18,10 @@
         <?php
             include("src/actions/db_connect.php");
         ?>
+
+<header class="main-header">Стань разработчиком в нашей компании</header>
+
+
 
         <section id="activity">
             <div class="container">
