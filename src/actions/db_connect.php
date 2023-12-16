@@ -12,7 +12,12 @@
   // $stmt->bind_param("s", $email);
   $stmt->execute();
   $result = $stmt->get_result();
+<<<<<<< HEAD
   // $row = $result->fetch_assoc();    
   // print_r($row);
+=======
+  $row = $result->fetch_assoc();    
+  print_r($row);  
+>>>>>>> b13cc9867a376532cbfc0e0e95aabfe94c8de5e9
 
 ?>
