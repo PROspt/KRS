@@ -44,54 +44,65 @@
   }
 </style>
 
+
+
+
 <header class="header">
   <div class="head-container">
-    <img src="images/logo-black.svg" alt="">
+        <a href="index.php">  
+      <img src="images/logo-black.svg" alt=""></a>
     <div class="head-navbar">
       <?php
         include("src/actions/db_connect.php");
+        
+        // Проверяем, была ли отправлена форма входа
         if(!empty($_POST['login'])) {
           if(!empty($_POST['password']) and !empty($_POST['email'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $queryr = "SELECT * FROM users WHERE email='$email'";
-            $result = mysqli_query($db, $queryr) or die(mysqli_error($link));
-            $user = mysqli_fetch_assoc($resultat);
-            $_SESSION['user'] = $user;
-            if(empty($user) || !password_verify($password,$user['password'])){
-            $error[] = 'Неверный логин или пароль';
+            $query = "SELECT * FROM users WHERE email='$email'";
+            $result = mysqli_query($db, $query) or die(mysqli_error($db));
+            $user = mysqli_fetch_assoc($result);
+
+            if(empty($user) || !password_verify($password, $user['password'])){
+              $error[] = 'Неверный логин или пароль';
+            } else {
+              $_SESSION['user'] = $user;
             } 
           }      
         }
+
+        // Проверяем, авторизован ли пользователь
         if (!empty($_SESSION['user'])){
-          echo $_SESSION['user']['name'];
-          
+          $login = $_SESSION['user']['login'];
       ?>            
-      <!-- <a href=""> Выход </a> -->
+      <!-- Отображаем ссылку на выход, если пользователь авторизован -->
       <div class="head-login">
         <img src="images/person.svg" alt="">
-        Выход
+        <a href="?log=out">Выход</a>
       </div>
       <?php
-        if($_GET['log'] == 'out'){
-          $_SESSION['user'] = null;
-        }} else {
+          if($_GET['log'] == 'out'){
+            $_SESSION['user'] = null;
+          }
+        } else { 
       ?>
-      <!-- <a href="#Sing" class="login white">Войти</a> -->
+      <!-- Отображаем кнопку входа, если пользователь не авторизован -->
       <div class="head-login">
         <img src="images/person.svg" alt="">
         Вход
+        <img src="images/person.svg" alt="">
+        <a href="?log=aut">Вход</a>
       </div>
       <?php
         }
       ?>
       <div class="head-lang">
-          <img src="images/lang.svg" alt="">
+        <img src="images/lang.svg" alt="">
       </div>
     </div>
   </div>
 </header>
-
 
 
 
