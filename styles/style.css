@@ -29,7 +29,7 @@ h2.heading {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background: linear-gradient(to top left, powderblue, pink)
 }
 h2 {
     text-align: center;
@@ -45,7 +45,7 @@ label {
 .main-header {
     color: #000;
     margin-top: 106px;
-    font: 800 82px Open Sans, sans-serif;
+    font: 800 68px Open Sans, sans-serif;
   }
   @media (max-width: 991px) {
     .main-header {
@@ -58,9 +58,131 @@ label {
 
 
 
+
+
+
+
+
+/* Регистрация */
+
+.registr-container, .login-container {
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 35vw;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+}
+.login-container{
+  display:none;
+}
+
+.head-login {
+  text-decoration: none;
+  color: black;
+}
+
+.button-text {
+  background-color: #fff;
+  align-self: stretch;
+  padding: 0px 30px 19px 30px;
+  font: 700 16px Open Sans, sans-serif;
+}
+
+#blur_reg{
+  backdrop-filter: blur(5px);
+}
+.title_reg {
+  color: #000;
+  font: 700 27px Open Sans, sans-serif;
+  background: #fff;
+}
+
+.email,
+.password,
+.confirm-password {
+  color: #9a9a9a;
+  background-color: #fff;
+  align-self: stretch;
+  padding: 19px 60px 19px 30px;
+  font: 700 16px Open Sans, sans-serif;
+}
+
+.email input,
+.password input,
+.confirm-password input{
+  border: #000 2px solid;
+  border-radius: 15px;
+}
+.label {
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  border: none;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.checkbox {
+  border-radius: 4px;
+  background-color: #fff;
+  display: flex;
+  width: 22px;
+  height: 22px;
+  flex-direction: column;
+  margin: 0;
+}
+
+.checkbox-label {
+  color: #000;
+  flex-grow: 1;
+  flex-basis: auto;
+  font: 600 16px Open Sans, sans-serif;
+  margin-left: 10px;
+}
+
+.submit-btn {
+  color: #fff;
+  white-space: nowrap;
+  border-radius: 10px;
+  background-color: #8e78f7;
+  align-self: stretch;
+  padding: 16px 60px;
+  font: 700 16px Open Sans, sans-serif;
+  cursor: pointer;
+  border: none;
+}
+
+.secondary-text {
+  color: #3a3a3a;
+  white-space: nowrap;
+  font: 600 16px Open Sans, sans-serif;
+}
+
+
+
+
+/* Регистрация */
+
+
+
   .main-container {
     align-self: center;
-    width: 100%;
     max-width: 1503px;
     padding: 0 20px;
   }

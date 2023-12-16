@@ -12,10 +12,14 @@
 </main>
 <footer>
       <div class="footer-logo">
-        <img src="/images/logo-white.png" alt="">
+        <img src="images/logo-white.png" alt="">
       </div>
 
       <p>&copy; 2024 РОГАТЫЙ СКОТ. Все права защищены.</p>
 </footer>
 
 </html>
+      <a href= "admin.php">Переход в админ</a>
+      <a href= "index.php">Переход домой</a>
+      <a href= "vk_connect.php">Переход вк</a>
+    </footer>
