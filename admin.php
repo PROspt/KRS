@@ -117,41 +117,6 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- 
                             <div class="div-navbar">
                                 <div class="div-navbar-item">
@@ -264,44 +229,6 @@
 
 
 
-<!-- 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var requestsTab = document.getElementById('requestsTab');
-    var databaseTab = document.getElementById('databaseTab');
-    var infoBlock = document.getElementById('infoBlock');
-    
-    // Функция для отображения информации для выбранного раздела
-    function showInfoForSection(section) {
-      // Очищаем содержимое блока информации
-      infoBlock.innerHTML = '';
-      
-      // Проверяем, какой раздел выбран, и добавляем соответствующую информацию в блок
-      if (section === 'requests') {
-        infoBlock.innerHTML = '<p>Информация о разделе "Заявки"...</p>';
-      } else if (section === 'database') {
-        infoBlock.innerHTML = '<p>Информация о разделе "База"...</p>';
-      }
-    }
-    
-    requestsTab.addEventListener('click', function() {
-      requestsTab.classList.add('active');
-      databaseTab.classList.remove('active');
-      
-      showInfoForSection('requests');
-    });
-    
-    databaseTab.addEventListener('click', function() {
-      databaseTab.classList.add('active');
-      requestsTab.classList.remove('active');
-      
-      showInfoForSection('database');
-    });
-    
-    // Открытие раздела "Заявки" по умолчанию
-    requestsTab.click();
-  });
-</script> -->
 
 
 
