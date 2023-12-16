@@ -106,5 +106,46 @@
     ?>
 
 
+
+
+
+<header class="registr-container">
+  <h1 class="title_reg">Регистрация</h1>
+  <section class="email">
+    <label for="email" class="label">Адрес эл. почты</label>
+    <input id="email" type="email" class="input" aria-label="МЫЛО" aria-role="textbox" />
+  </section>
+  <section class="password">
+    <label for="password" class="label">Пароль</label>
+    <input id="password" type="password" class="input" aria-label="Пароль" aria-role="textbox" />
+    <img loading="lazy" src="images/eyes.svg" alt="Password Icon" class="img" />
+  </section>
+  <section class="confirm-password">
+    <label for="confirm-password" class="label">Повторите пароль</label>
+    <input id="confirm-password" type="password" class="input" aria-label="Подтвердите пароль" aria-role="textbox" />
+    <img loading="lazy" src="images/eyes.svg" alt="Password Icon" class="img">
+  <div class="checkbox-container">
+    <input id="checkbox" type="checkbox" class="checkbox" aria-label="Политика" aria-role="checkbox" />
+    <label for="checkbox" class="checkbox-label">Я согласен с регламентом и политикой конфиденциальности</label>
+  </div>
+  <button class="submit-btn">Зарегистрироваться</button>
+  <p class="secondary-text">Не получается зарегистрироваться?</p>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
