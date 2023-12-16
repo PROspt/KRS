@@ -99,11 +99,8 @@
 
 
 
-<div class="popup-fade">
-	<div class="popup">
-        
-    
-		<a class="popup-close" href="#">Закрыть</a>
+    <div id="authorization-modal" class="modal">
+  
         <div class="registr-container">
   <h1 class="title_reg">Регистрация</h1>
   <section class="email">
@@ -124,10 +121,42 @@
     <label for="checkbox" class="checkbox-label">Я согласен с регламентом и политикой конфиденциальности</label>
     </div>  
     <button class="submit-btn">Зарегистрироваться</button>
-  <p class="secondary-text">Не получается зарегистрироваться?</p>
-
- 
+  
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="login-container">
+    <h1 class="title_reg">Вход в систему</h1>
+    <section class="email">
+      <label for="email" class="label">Адрес эл. почты</label>
+      <input type="text" name="login" required class="input">
+    </section>
+    <section class="password">
+      <label for="password" class="label">Пароль</label>
+      <input type="password" name="password" class="input" required>
+      <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
+    </section>
+    <section class="">
+    <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
+    <p class="secondary-text">Не получается войти?</p> 
+    </section>
+</form>
+
+
+
+
+
+
+
 
 
 
@@ -164,9 +193,86 @@
 	top: 10px;
 	right: 10px;
 }
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  /* Другие стили для кнопки закрытия */
+}
+
+/* Другие стили для модального окна */
+
+
+
+
+
+
 </style>
 
+<script>
+    // Находим все кнопки с атрибутом data-modal-target
+const modalButtons = document.querySelectorAll('[data-modal-target]');
+
+// Добавляем событие нажатия на каждую кнопку
+modalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modalId = button.dataset.modalTarget;
+    const modal = document.getElementById(modalId);
+    
+    // Открываем модальное окно
+    openModal(modal);
+  });
+});
+
+// Функция для открытия модального окна
+function openModal(modal) {
+  if (modal == null) return;
+  modal.classList.add('active');
+}
+
+// Функция для закрытия модального окна
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.classList.remove('active');
+}
+
+// Находим кнопку "Закрыть" в модальном окне авторизации
+const closeButton = document.querySelector('.popup-close');
+
+// Добавляем событие нажатия на кнопку "Закрыть"
+closeButton.addEventListener('click', () => {
+  const modal = closeButton.closest('.modal');
+  
+  // Закрываем модальное окно
+  closeModal(modal);
+});
+
+</script>
+<!-- 
 <script src="https://yandex.st/jquery/2.1.1/jquery.min.js"></script>
+
 <script>
 $(document).ready(function($) {
 	$('.popup-close').click(function() {
@@ -187,7 +293,7 @@ $(document).ready(function($) {
 		}
 	});	
 });
-</script>
+</script> -->
 
 
 
