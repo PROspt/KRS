@@ -6,6 +6,7 @@
     $stmt->execute();
     $users = $stmt->fetchAll();
     
+    
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +68,26 @@
 
 <!-- Здесь ЗАЯВКИ-->
 <div class="info-block" id="requestsBlock">
-    <p> БЛЯТЬ НАЗУЙ</p>
+<div class="div-table">
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">#</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($event as $row):?>
+                                    <tr>
+                                    <td scope="row"><?= $row['id']; ?></td>
+                                    <td scope="row"><?= $row['first_name']; ?></td>
+                                    <td scope="row"><?= $row['last_name']; ?></td>
+                                    </tr>
+                                <?php endforeach;?>
+                            </tbody>
+                            </table>
+                            </div>  
+</div>
 </div>
 
 
