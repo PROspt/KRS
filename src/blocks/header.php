@@ -85,10 +85,10 @@
         } else { 
       ?>
       <!-- Отображаем кнопку входа, если пользователь не авторизован -->
-      <a href="?log=aut" class="head-login">
+      <div class="head-login">
         <img src="images/person.svg" alt="">
         <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal">
-      </a>
+      </div>
       <?php
         }
       ?>
@@ -96,7 +96,6 @@
         <img src="images/lang.svg" alt="">
       </div>
     </div>
-
   </div>
 </header>
 
