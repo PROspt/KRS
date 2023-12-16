@@ -13,6 +13,14 @@
     
 ?>
 
+<!-- JQ и его фреймворки -->
+<script
+  src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+  integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +39,15 @@
     <div class="container">
         <div class="upr-block">
                         <div class="upr-header"><h2>Управление</h2>  </div>
-                        <div class="upr">   
+                        <div class="upr">
+                          
+<script src='tablesort.min.js'></script>
+
+<!-- Include sort types you need -->
+<script src='tablesort.number.js'></script>
+<script src='tablesort.date.js'></script>
+
+
 
 
 
@@ -82,14 +98,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($event as $row):?>
-                                    <tr>
-                                    <td scope="row"><?= $row['id']; ?></td>
-                                    <td scope="row"><?= $row['first_name']; ?></td>
-                                    <td scope="row"><?= $row['last_name']; ?></td>
-                                    <td scope="row"><?= $row['skill']; ?></td>
-                                    </tr>
-                                <?php endforeach;?>
                             </tbody>
                             </table>
                             </div>  
@@ -100,20 +108,23 @@
  <!-- Здесь БАЗА-->
 <div class="info-block" id="databaseBlock" style="display: none">
 <div class="div-table">
-                            <table class="table">
+                            <table id="userst" class="table">
+                            <caption></caption>
                             <thead>
-                                <tr>
-                                <th scope="col">#</th>
-
-                                </tr>
+                              <tr>
+                                <th>#</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                              </tr>
                             </thead>
                             <tbody>
                             <?php foreach($users as $row):?>
                                     <tr>
-                                    <td scope="row"><?= $row['id']; ?></td>
-                                    <td scope="row"><?= $row['first_name']; ?></td>
-                                    <td scope="row"><?= $row['last_name']; ?></td>
-                                    <td scope="row"><?php $sum = 0;
+                                      <td><?= $row['id']; ?></td>
+                                      <td><?= $row['first_name']; ?></td>
+                                      <td><?= $row['last_name']; ?></tdpe=>
+                                      <td><?= $sum = 0;
                                     foreach($user_event as $row2) {
                                       if ($row2["id_user"] == $row['id']) {
                                         $sum += $row2["exp"];
@@ -128,6 +139,11 @@
                             </table>
                             </div>  
 </div>
+
+<script>
+  // Фильтр таблиц
+
+</script>
 
 </div>
 
@@ -174,14 +190,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($users as $row):?>
-                                    <tr>
-                                    <td scope="row"><?= $row['id']; ?></td>
-                                    <td scope="row"><?= $row['first_name']; ?></td>
-                                    <td scope="row"><?= $row['last_name']; ?></td>
-                                    <td scope="row"><?= $row['skill']; ?></td>
-                                    </tr>
-                                <?php endforeach;?>
+
                             </tbody>
                             </table>
                             </div>  
@@ -194,6 +203,36 @@
     </div>
 </body>
 
+<table id="table_text">
+  <thead>
+    <tr>
+      <th>лол</th>
+      <th>лол2</th>
+      <th>лол3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>12</td>
+      <td>25</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>82</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  new Tablesort(document.getElementById('table_text'));
+
+  new Tablesort(document.getElementById('userst'), {
+    // descending: true
+  });
+</script>
+
 
 
 
@@ -201,6 +240,9 @@
 
 
 <script>
+
+
+
   document.addEventListener('DOMContentLoaded', function() {
     // Получаем ссылки на вкладки
     var requestsTab = document.getElementById('requestsTab');
@@ -244,7 +286,7 @@
 </script>
 
 
-
+  
 
 
 
