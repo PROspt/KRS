@@ -8,7 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админ панель</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/admin.css">
+
     <?php
             require_once("src/blocks/header.php");
     ?>
@@ -17,7 +19,12 @@
     <div class="container">
         <div class="upr-block">
                         <div class="upr-header"><h2>Управление</h2>  </div>
-
+                        <?   
+    $stmt = $db->prepare("SELECT * FROM users");
+  $stmt->execute(); 
+  $result = $stmt->get_result();
+  $row = $result->fetch_assoc();    
+  ?>
                         <div class="upr">   
                             <div class="div-navbar">
                                 <div class="div-navbar-item">
@@ -52,15 +59,32 @@
                                 </div>
                             </div>     
                             <div class="div-table">
-                            <table class="fixed">
-                                <col width="20px" />
-                                <col width="30px" />
-                                <col width="40px" />
+                            <table class="table">
+                            <thead>
                                 <tr>
-                                    <td>textasdfasdfasdfasdfasdfasdfasdfasdfsad</td>
-                                    <td>text</td>
-                                    <td>text</td>
+                                <th scope="col">#</th>
+
                                 </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>город</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                                </tr>
+                            </tbody>
                             </table>
                             </div>  
                         </div>
