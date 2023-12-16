@@ -97,7 +97,6 @@
       </div>
     </div>
 
-    <!-- <input type="submit" name="submit-btn" value="Войти разбойник" class="submit-btn" data-modal-target="authorization-modal"> -->
   </div>
 </header>
 
@@ -142,8 +141,6 @@
 
 
 
-<<<<<<< HEAD
-=======
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="login-container">
     <h1 class="title_reg">Вход в систему</h1>
     <section class="email">
@@ -161,7 +158,6 @@
     </section>
 </form>
 
->>>>>>> f1a0876ce8cea6424e33eaf66a41cbe29021073d
 <?php 
     }
 
