@@ -3,6 +3,7 @@
             require_once("src/blocks/header.php");
     ?>
 <body>
+    
     <div class="container">
     <header class="main-container">
   <section class="div">
