@@ -14,5 +14,10 @@
   // $result = $stmt->get_result();
   // $row = $result->fetch_assoc();    
   // print_r($row);  
+  $result = $stmt->get_result();
+  // $row = $result->fetch_assoc();    
+  // print_r($row);
+  $row = $result->fetch_assoc();    
+  print_r($row);  
 
 ?>
