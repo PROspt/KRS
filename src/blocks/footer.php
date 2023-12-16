@@ -22,6 +22,7 @@
       <a href= "admin.php">Переход в админ</a>
       <a href= "index.php">Переход домой</a>
       <a href= "vk_connect.php">Переход вк</a>
-
+      <a href= "email_ras.php">Переход мыло
+      </a>
     </footer>
     </html>
