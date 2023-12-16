@@ -17,6 +17,7 @@
     </div>
   </section>
 </header>
+        <!-- <div class="dark"></div> -->
         <?php
             include("src/actions/db_connect.php");
         ?>
@@ -100,11 +101,13 @@
         </section>
 
     </div>
+    </body>
 
     <?php
             require_once("src/blocks/footer.php");
     ?>
 
+<script src="scripts/master.js"></script>
 
-</body>
-</html>
+
+
