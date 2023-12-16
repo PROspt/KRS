@@ -19,7 +19,7 @@
     // При нажатии кнопки для авторизации через VK
 function loginWithVk() {
   const clientId = '51816095'; // Замените на ваш Client ID
-  const redirectUri = 'http://krs/KRS/vk_connect.php'; // Замените на ваш URL-адрес обратного вызова
+  const redirectUri = 'https://localhost/KRS/vk_connect.php'; // Замените на ваш URL-адрес обратного вызова
 
   // Формирование URL для авторизации OAuth 2.0
   const authUrl = `https://oauth.vk.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&v=5.131&scope=groups,wall`;
@@ -32,7 +32,7 @@ function loginWithVk() {
 function vkCallback(code) {
   const clientId = '51816095'; // Замените на ваш Client ID
   const clientSecret = 'kDxVhNys6Zbmvs8yTDSl'; // Замените на ваш Client Secret
-  const redirectUri = 'http://krs/KRS/vk_connect.php'; // Замените на ваш URL-адрес обратного вызова
+  const redirectUri = 'https://localhost/KRS/vk_connect.php'; // Замените на ваш URL-адрес обратного вызова
 
   // Запрос access token и получение информации о группах пользователя
   fetch(`https://oauth.vk.com/access_token?client_id=${clientId}&client_secret=${clientSecret}&redirect_uri=${redirectUri}&code=${code}`)
