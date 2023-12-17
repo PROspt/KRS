@@ -2,6 +2,7 @@
     session_start();
     
     include("src/actions/db_connect.php");
+    include("vk_connect.php");
     $stmt = $pdo->prepare("SELECT * FROM users");
     $stmt->execute();
     $users = $stmt->fetchAll();
@@ -88,6 +89,16 @@ exit();
     Постинг
   </div>
 
+  <div class="div-navbar-item " id="emailTab">
+    <img class="navbar-icon" xmlns="images/mail.svg" width="31" height="31" viewBox="0 0 31 31">
+
+</img>
+    Рассылка email
+  </div>
+
+
+
+
   <div class="div-navbar-item " id="databaseTab">
     <svg class="navbar-icon" xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
     <g clip-path="url(#clip0_78_500)">
@@ -121,6 +132,21 @@ exit();
 
 
 
+
+
+<!-- Здесь рассылка для мыла-->
+<div class="info-block" id="emailBlock">
+  <div class="settings-div">
+  
+      <P>СЮДА МОЖЕШЬЬЧТО ХОТЬ ПИСАТЬ И ПИПИСЬКА ДА</P>
+    
+  </div>
+</div>
+
+
+
+
+
 <!-- Здесь Постинг-->
 <div class="info-block" id="postingBlock">
   <div class="settings-div">
@@ -134,7 +160,26 @@ exit();
         <form action="src/actions/post.php", method="post">
             <input type="text" name="token-vk" placeholder="Токен вк">
             <input type="text" name="token-tg" placeholder="Токен тг">
-            <input type="text" name="chat_id-vk" placeholder="id паблика">
+            <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>">
+
+<style>
+.img_icon_pref{
+width: 32px;
+height: 32px;
+}
+#pref{
+  border: 2px solid black;
+  width: 300px;
+  height: 40px;
+}
+</style>
+            <div id="pref">
+              <?
+              echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';
+              echo $groupId;
+              ?>
+            </div>
+
             <input type="text" name="chat_id-tg" placeholder="id канала">
             <textarea name="text" id="" cols="30" rows="10" placeholder="Текст"></textarea>
             <button type="submit">Отправить</button>
@@ -254,6 +299,8 @@ exit();
     var paramsBlock = document.getElementById('paramsBlock');
     var postingTab = document.getElementById('postingTab');
     var postingBlock = document.getElementById('postingBlock');
+    var emailTab = document.getElementById('emailTab');
+    var emailBlock = document.getElementById('emailBlock');
 
     
     //  для отображения информации для выбранного раздела
@@ -271,6 +318,10 @@ exit();
       }else if (section === 'postingTab'){
         infoBlock.innerHTML = '<p>Информация о разделе "Настройки"...</p>';
         infoBlock.innerHTML = postingBlock.innerHTML;
+      }else if( section ==='emailTab')
+      {
+        infoBlock.innerHTML = '<p>Информация о разделе "email рассылка"...</p>';
+        infoBlock.innerHTML = emailBlock.innerHTML;
       }
     }
     //  обработчики событий на вкладки
@@ -278,6 +329,8 @@ exit();
       // Добавляем классы активной вкладке и удаляем у второй вкладки
       requestsTab.classList.add('active', 'div-navbar-item-enable');
       databaseTab.classList.remove('active', 'div-navbar-item-enable');
+      emailTab.classList.remove('active', 'div-navbar-item-enable');
+      postingTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('requests');
     });
     
@@ -285,15 +338,25 @@ exit();
       // Добавляем классы активной вкладке и удаляем у первой вкладки
       databaseTab.classList.add('active', 'div-navbar-item-enable');
       requestsTab.classList.remove('active', 'div-navbar-item-enable');
+      emailTab.classList.remove('active', 'div-navbar-item-enable');
+      postingTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('database');
     });
     
     postingTab.addEventListener('click', function() {
-      // Добавляем классы активной вкладке и удаляем у первой вкладки
       postingTab.classList.add('active', 'div-navbar-item-enable');
       requestsTab.classList.remove('active', 'div-navbar-item-enable');
       databaseTab.classList.remove('active', 'div-navbar-item-enable');
+      emailTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('postingTab');
+    });
+
+    emailTab.addEventListener('click', function() {
+      emailTab.classList.add('active', 'div-navbar-item-enable');
+      postingTab.classList.remove('active', 'div-navbar-item-enable');
+      requestsTab.classList.remove('active', 'div-navbar-item-enable');
+      databaseTab.classList.remove('active', 'div-navbar-item-enable');
+      showInfoForSection('emailTab');
     });
 
     // Открытие вкладки "База" по умолчанию
