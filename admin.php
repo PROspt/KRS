@@ -138,7 +138,12 @@ exit();
 <div class="info-block" id="emailBlock">
   <div class="settings-div">
   
-      <P>СЮДА МОЖЕШЬЬЧТО ХОТЬ ПИСАТЬ И ПИПИСЬКА ДА</P>
+       
+  <form action="/src/actions/send.php", method="post">
+    <textarea name="mail-doc" cols="30" rows="10"></textarea>
+    <button type="submit">Отправить письмо</button>
+  </form>
+
     
   </div>
 </div>

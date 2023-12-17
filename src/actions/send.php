@@ -1,4 +1,9 @@
 <?php 
+require __DIR__.'/db_connect.php';
+
+$stmt = $pdo->prepare("SELECT email, first_name FROM users");
+$stmt->execute();
+$emails = $stmt->fetchAll();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -13,6 +18,8 @@ $mail->CharSet = 'UTF-8';
 $yourEmail = 'TheTildaT@yandex.ru'; // ваш email на яндексе
 $password = 'obtzcxhqmeryiqjd'; // ваш пароль к яндексу или пароль приложения
 
+$message = $_POST['mail-doc'];
+
 // настройки SMTP
 $mail->Mailer = 'smtp';
 $mail->Host = 'ssl://smtp.yandex.ru';
@@ -25,23 +32,19 @@ $mail->Password = $password; // ваш пароль;
 // формируем письмо
 
 // от кого: это поле должно быть равно вашему email иначе будет ошибка
-$mail->setFrom($yourEmail, 'DevRel Hack 2.0');
+foreach($emails as $us){
+    $mail->setFrom($yourEmail, 'DevRel Hack 2.0');
 
-// кому - получатель письма
-$mail->addAddress('mmrisov8934@gmail.com', 'Имя Получателя');  // кому
+    // кому - получатель письма
+    $mail->addAddress($us['email'], $us['first_name']);  // кому
 
-$mail->Subject = 'Проверка';  // тема письма
+    $mail->Subject = 'Проверка';  // тема письма
 
-$mail->msgHTML("<html><body>
-				<h1>Проверка связи!</h1>
-				<p>Это тестовое письмо.</p>
-				</html></body>");
+    $mail->msgHTML($message);
+    $mail->send();
 
 
-if ($mail->send()) { // отправляем письмо
-    echo 'Письмо отправлено!';
-} else {
-    echo 'Ошибка: ' . $mail->ErrorInfo;
-}
-
+};
+header("Location: /admin.php");
+exit( );
 ?>
