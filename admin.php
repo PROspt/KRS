@@ -221,7 +221,7 @@ height: 32px;
                                     <tr>
                                       <td><?= $row['id']; ?></td>
                                       <td><?= $row['first_name']; ?></td>
-                                      <td><?= $row['last_name']; ?></tdpe=>
+                                      <td><?= $row['last_name']; ?></td>
                                       <td><?= $sum = 0;
                                     foreach($user_event as $row2) {
                                       if ($row2["id_user"] == $row['id']) {
