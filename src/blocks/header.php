@@ -143,20 +143,6 @@ document.getElementById("zakroi").addEventListener("click", function() {
   </form>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <button id="closeModalButton">Закрыть</button>
   </div>
 </div>
