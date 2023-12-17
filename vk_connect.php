@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Отправка поста в VK</title>
+    <title>Добавление поста в VK</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <form id="postForm">
-      <input type="text" name="message" placeholder="Текст поста">
+      <input type="text" name="message" placeholder="Текст поста" required>
       <input type="file" name="photo" accept="image/*">
       <button type="submit">Отправить пост</button>
     </form>
