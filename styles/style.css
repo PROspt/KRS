@@ -63,7 +63,7 @@ label {
 
 /* Регистрация */
 
-.registr-container, #login-container {
+.registr-container, .login-container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -75,7 +75,10 @@ label {
   top: 0;
   bottom: 0;
   margin: auto;
-  display:none;
+  display:flex;
+}
+.registr-container, .login-container {
+  display: none;
 }
 
 .button-text {
