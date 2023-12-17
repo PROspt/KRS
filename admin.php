@@ -151,7 +151,7 @@ exit();
 
       <input type="text" id="tgtoken-input"style="width:600px" class="form-control" name="token_tg" placeholder="Токен телеграм бота" value="<?php echo $token_tg; ?>">
 
-      <label style="font-size: 20px;  margin-top: 30px" name="mail-doc" for="vktoken-input" class="form-label">Введите текст для отправки письма (html теги можна)</label>
+      <label style="font-size: 20px;  margin-top: 30px" name="mail-doc" for="vktoken-input" class="form-label">Токен для вк</label>
       <input type="text" id="vktoken-input" style="width:600px;"class="form-control" name="token_vk" placeholder="acces_token Вконтакте" value="<?php echo $token_vk; ?>">
       
       <button type="submit"class="btn btn-light" name = "replace_token">Обновить</button>
