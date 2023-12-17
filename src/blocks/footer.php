@@ -27,7 +27,6 @@
       </div>
 
       <p>&copy; 2024 РОГАТЫЙ СКОТ. Все права защищены.</p>
-      </a>
 
       <a href= "admin.php" class="footer-href">Переход в админ</a>
       <a href= "index.php" class="footer-href">Переход домой</a>
