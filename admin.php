@@ -138,7 +138,11 @@ exit();
 <div class="info-block" id="emailBlock">
   <div class="settings-div">
   
-      <P>СЮДА МОЖЕШЬЬЧТО ХОТЬ ПИСАТЬ И ПИПИСЬКА ДА</P>
+       
+  <form action="/src/actions/send.php">
+    <textarea name="mail-doc" cols="30" rows="10"></textarea>
+  </form>
+
     
   </div>
 </div>
@@ -149,62 +153,44 @@ exit();
 
 <!-- Здесь Постинг-->
 <div class="info-block" id="postingBlock">
-  <div class="settings-div" style="display:block">
-  <h2>Постинг в Социальные сети</h2>
-  <button type="button" style="width:90px " onclick="addNewField()">добавить еще</button>
+  <div class="settings-div">
+    <form action="" method="post">
+      <input type="text" name="token_tg" placeholder="Токен телеграм бота" value="<?php echo $token_tg; ?>">
+      <input type="text" name="token_vk" placeholder="acces_token Вконтакте" value="<?php echo $token_vk; ?>">
+      <button type="submit" name = "replace_token">Обновить</button>
+      <p>э</p>
 
       <div id="send-post-div">
         <form action="src/actions/post.php", method="post">
-        <div id="group-fields">
-            <span style="display: flex;">
-            <? echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';?>
-    <input type="text"  style="
-    margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo $groupId?>">
-    <input type="text" name="chat_id-tg" placeholder="id канала/username" value="@devrelhack2">
-</span>
-        </div>
+            <input type="text" name="token-vk" placeholder="Токен вк">
+            <input type="text" name="token-tg" placeholder="Токен тг">
+            <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>">
+
 <style>
 .img_icon_pref{
-width: 20px; 
-height: 20px; 
-margin-right: 5px;
-margin-left: -25px;
+width: 32px;
+height: 32px;
+}
+#pref{
+  border: 2px solid black;
+  width: 300px;
+  height: 40px;
 }
 </style>
-            <textarea name="text" id="" cols="30" rows="5" placeholder="Текст" style="width:940px"></textarea>
+            <div id="pref">
+              <?
+              echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';
+              echo $groupId;
+              ?>
+            </div>
+
+            <input type="text" name="chat_id-tg" placeholder="id канала">
+            <textarea name="text" id="" cols="30" rows="10" placeholder="Текст"></textarea>
             <button type="submit">Отправить</button>
-        
+        </form>
     </div>
 
-    <script>
-   function addNewField() {
-    var groupFields = document.getElementById("group-fields");
 
-    var newField = document.createElement("span");
-
-    var imgElement = document.createElement("img");
-    imgElement.classList.add("img_icon_pref");
-    imgElement.src = "";
-    
-    var inputElement_tg = document.createElement("input");
-    inputElement_tg.type = "text";
-    inputElement_tg.placeholder = "id канала/username";
-    inputElement_tg.name = "chat_id-vk";
-    
-    var inputElement_vk = document.createElement("input");
-    inputElement_vk.type = "text";
-    inputElement_vk.placeholder = "id паблика";
-    inputElement_vk.name = "chat_id-tg";
-    
-
-
-    newField.appendChild(imgElement);
-    newField.appendChild(inputElement_vk); 
-    newField.appendChild(inputElement_tg);
-    
-    groupFields.appendChild(newField);
-  }
-</script>
 
 
 
@@ -267,7 +253,7 @@ margin-left: -25px;
     </div>
 </body>
 
-<!-- <table id="table_text">
+<table id="table_text">
   <thead>
     <tr>
       <th>лол</th>
@@ -287,15 +273,15 @@ margin-left: -25px;
       <td>11</td>
     </tr>
   </tbody>
-</table> -->
+</table>
 
-<!-- <script>
+<script>
   new Tablesort(document.getElementById('table_text'));
 
   new Tablesort(document.getElementById('userst'), {
     // descending: true
   });
-</script> -->
+</script>
 
 
 
@@ -347,8 +333,6 @@ margin-left: -25px;
       // Добавляем классы активной вкладке и удаляем у второй вкладки
       requestsTab.classList.add('active', 'div-navbar-item-enable');
       databaseTab.classList.remove('active', 'div-navbar-item-enable');
-      emailTab.classList.remove('active', 'div-navbar-item-enable');
-      postingTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('requests');
     });
     
@@ -356,8 +340,6 @@ margin-left: -25px;
       // Добавляем классы активной вкладке и удаляем у первой вкладки
       databaseTab.classList.add('active', 'div-navbar-item-enable');
       requestsTab.classList.remove('active', 'div-navbar-item-enable');
-      emailTab.classList.remove('active', 'div-navbar-item-enable');
-      postingTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('database');
     });
     
@@ -365,7 +347,6 @@ margin-left: -25px;
       postingTab.classList.add('active', 'div-navbar-item-enable');
       requestsTab.classList.remove('active', 'div-navbar-item-enable');
       databaseTab.classList.remove('active', 'div-navbar-item-enable');
-      emailTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('postingTab');
     });
 
@@ -393,6 +374,6 @@ margin-left: -25px;
 
 
 <?php
-    require_once("src/blocks/footer.php");
-?>
+            require_once("src/blocks/footer.php");
+    ?>
 </html>
