@@ -49,7 +49,9 @@
         <a href="index.php">  
       <img src="images/logo-black.svg" alt=""></a>
     <div class="head-navbar">
-      <?php
+     
+     
+     <?php
         include("src/actions/db_connect.php");
         
         // Проверяем, была ли отправлена форма входа
@@ -104,7 +106,6 @@
 
 
 <?php
-    include("src/actions/db_connect.php");
     if(isset($_POST['submit-btn'])) {
         if(!empty($_POST['login']) && !empty($_POST['password']) ) {
             $login = $_POST['login'];
@@ -142,20 +143,21 @@
 
 
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="login-container">
-    <h1 class="title_reg">Вход в систему</h1>
-    <section class="email">
-      <label for="email" class="label">Адрес эл. почты</label>
-      <input type="text" name="login" required class="input">
-    </section>
-    <section class="password">
-      <label for="password" class="label">Пароль</label>
-      <input type="password" name="password" class="input" required>
-      <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
-    </section>
-    <section class="button-text">
-    <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
-    <p class="secondary-text">Не получается войти?</p> 
-    </section>
+    <div class="container-white">
+      <h1 class="title_reg">Вход в систему</h1>
+      <section class="email">
+        <label for="email" class="label">Адрес эл. почты</label>
+        <input type="text" name="login" required class="input">
+      </section>
+      <section class="password">
+        <label for="password" class="label">Пароль</label>
+        <input type="password" name="password" class="input" required>
+        <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
+      </section>
+      <section class="button-text">
+      <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
+      </section>
+    </div>
 </form>
 
 <?php 
@@ -165,9 +167,3 @@
         echo $error;
     }
 ?>
-
-
-
-
-<main id="main">
-      

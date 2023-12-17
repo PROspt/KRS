@@ -61,28 +61,24 @@ label {
 
 
 
-
-
 /* Регистрация */
 
 .registr-container, .login-container {
- 
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   width: 35vw;
-
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto;
-
+  display:flex;
 }
-.login-container{
-  display:none;
+.registr-container, .login-container {
+  display: none;
 }
 
 .button-text {
@@ -213,7 +209,7 @@ label {
     }
   }
 
-  .img {
+  .img, .img-eyes {
     object-fit: contain;
     object-position: center;
     width: 90%;
@@ -252,10 +248,22 @@ label {
     }
   }
 
+  .img-eyes {
+    width: 30px;
+  }
 
-
-
-
+  .container-white {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;  
+    background-color: #fff;  
+  }
 
 
 
