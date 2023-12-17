@@ -12,7 +12,7 @@
       transition: all 1s;
       font: 700 16px Open Sans, sans-serif;
       border-radius: 10px;
-      border: none;
+      border: none; 
     }
     .footer-href:hover{
       background-color: #8e78f7;
@@ -30,6 +30,7 @@
 
 
 
+<<<<<<< HEAD
       <a href= "admin.php">Переход в админ</a>
       <a href= "index.php">Переход домой</a>
       <a href= "vk_connect.php">Переход вк</a>
@@ -39,6 +40,12 @@
       <a href="admin.php" class="footer-href">Переход в админ</a>
       <a href="index.php" class="footer-href">Переход домой</a>
       <a href="wall-post.php" class="footer-href">Переход вк</a>
+=======
+      <a href= "admin.php" class="footer-href">Переход в админ</a>
+      <a href= "index.php" class="footer-href">Переход домой</a>
+      <a href= "vk_connect.php" class="footer-href">Переход вк</a>
+      <a href= "email_ras.php" class="footer-href">Переход мыло</a>
+>>>>>>> be6a028a7df536d564eff18e96c667d9aa397c6a
 
     </footer>
     </html>
