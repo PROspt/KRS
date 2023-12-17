@@ -329,6 +329,8 @@ height: 32px;
       // Добавляем классы активной вкладке и удаляем у второй вкладки
       requestsTab.classList.add('active', 'div-navbar-item-enable');
       databaseTab.classList.remove('active', 'div-navbar-item-enable');
+      emailTab.classList.remove('active', 'div-navbar-item-enable');
+      postingTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('requests');
     });
     
@@ -336,6 +338,8 @@ height: 32px;
       // Добавляем классы активной вкладке и удаляем у первой вкладки
       databaseTab.classList.add('active', 'div-navbar-item-enable');
       requestsTab.classList.remove('active', 'div-navbar-item-enable');
+      emailTab.classList.remove('active', 'div-navbar-item-enable');
+      postingTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('database');
     });
     
@@ -343,6 +347,7 @@ height: 32px;
       postingTab.classList.add('active', 'div-navbar-item-enable');
       requestsTab.classList.remove('active', 'div-navbar-item-enable');
       databaseTab.classList.remove('active', 'div-navbar-item-enable');
+      emailTab.classList.remove('active', 'div-navbar-item-enable');
       showInfoForSection('postingTab');
     });
 
