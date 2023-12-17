@@ -36,57 +36,6 @@ if ($result && isset($result['response'])) {
   echo 'Ошибка при добавлении поста: ' . $response;
 }
 
-// // Функция для загрузки фотографии на сервер VK и получения ее ID
-// function uploadPhotoToVK($photoPath, $accessToken) {
-//   $uploadUrl = file_get_contents("https://api.vk.com/method/photos.getWallUploadServer?access_token={$accessToken}&v=5.131");
-//   $uploadUrlResponse = json_decode($uploadUrl, true);
-//   if (isset($uploadUrlResponse['response']['upload_url'])) {
-//     $uploadUrl = $uploadUrlResponse['response']['upload_url'];
-//   } else {
-//     echo "Фотография не работает, ключ 'response' отсутствует в ответе";}
-//   $photoData = array(
-//     'photo' => new CURLFile($photoPath)
-//   );
-
-//   // Отправка POST-запроса на сервер VK для загрузки фотографии
-//   $ch = curl_init($uploadUrl);
-//   curl_setopt($ch, CURLOPT_POST, true);
-//   curl_setopt($ch, CURLOPT_POSTFIELDS, $photoData);
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//   $uploadResult = curl_exec($ch);
-//   curl_close($ch);
-  
-//   $uploadResult = json_decode($uploadResult, true);
-
-//   // Сохранение загруженной фотографии на сервере VK
-//   $saveResult = file_get_contents("https://api.vk.com/method/photos.saveWallPhoto?access_token={$accessToken}&server={$uploadResult['server']}&photo={$uploadResult['photo']}&hash={$uploadResult['hash']}&v=5.131");
-//   $saveResult = json_decode($saveResult, true);
-//   $photoId = $saveResult['response'][0]['id'];
-
-//   return $photoId;
-// }
-
-
-
-
-// function uploadPhotoToVKVK($photoPath, $accessToken) {
-//   $uploadUrl = file_get_contents('');
-//   $uploadUrl = json_decode($uploadUrl, true)[''][''];
-//   $photoData = array( 
-//     ''=> new CURLFile($photoPath)
-//   );
-//   $ch = curl_init($uploadUrl);
-//   curl_setopt($ch, CURLOPT_POST, true);
-//   curl_setopt($ch, CURLOPT_POSTFIELDS, $photoData);
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//   $uploadResult = curl_exec($ch);
-//   curl_close($ch);  
-//   $uploadResult = json_decode($uploadResult, true);
-//   $photoId = $uploadResult[''][0]['id'];
-//   return $photoId;  
-// }
-
 
 
 
