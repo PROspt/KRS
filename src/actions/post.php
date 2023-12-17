@@ -37,7 +37,7 @@ if ($result === false) {
 
 print_r($result);
 
-echo '<script>window.location.href = "../../admin.php.php";</script>';
+echo '<script>window.location.href = "../../admin.php";</script>';
 
 
 ?>
