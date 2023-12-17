@@ -149,23 +149,30 @@ exit();
 
 <!-- Здесь Постинг-->
 <div class="info-block" id="postingBlock">
-  <div class="settings-div">
-    <form action="" method="post">
-      <input type="text" name="token_tg" placeholder="Токен телеграм бота" value="<?php echo $token_tg; ?>">
-      <input type="text" name="token_vk" placeholder="acces_token Вконтакте" value="<?php echo $token_vk; ?>">
-      <button type="submit" name = "replace_token">Обновить</button>
-      <p>э</p>
+  <div class="settings-div" style="display:block">
+  <h2>Постинг в Социальные сети</h2>
 
       <div id="send-post-div">
         <form action="src/actions/post.php", method="post">
             <input type="text" name="token-vk" placeholder="Токен вк">
             <input type="text" name="token-tg" placeholder="Токен тг">
-            <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>">
+            <!-- <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>"> -->
+
+            <span style="display: flex;">
+            <? echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';?>
+    <input type="text"  style="
+    margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo $groupId?>">
+    <input type="text" name="chat_id-tg" placeholder="id канала">
+</span>
+
+
 
 <style>
 .img_icon_pref{
-width: 32px;
-height: 32px;
+width: 20px; 
+height: 20px; 
+margin-right: 5px;
+margin-left: -25px;
 }
 #pref{
   border: 2px solid black;
@@ -173,17 +180,12 @@ height: 32px;
   height: 40px;
 }
 </style>
-            <div id="pref">
-              <?
-              echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';
-              echo $groupId;
-              ?>
-            </div>
+        
 
-            <input type="text" name="chat_id-tg" placeholder="id канала">
-            <textarea name="text" id="" cols="30" rows="10" placeholder="Текст"></textarea>
+            
+            <textarea name="text" id="" cols="30" rows="5" placeholder="Текст" style="width:940px"></textarea>
             <button type="submit">Отправить</button>
-        </form>
+        
     </div>
 
 
