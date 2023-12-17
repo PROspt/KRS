@@ -267,7 +267,7 @@ margin-left: -25px;
     </div>
 </body>
 
-<table id="table_text">
+<!-- <table id="table_text">
   <thead>
     <tr>
       <th>лол</th>
@@ -287,15 +287,15 @@ margin-left: -25px;
       <td>11</td>
     </tr>
   </tbody>
-</table>
+</table> -->
 
-<script>
+<!-- <script>
   new Tablesort(document.getElementById('table_text'));
 
   new Tablesort(document.getElementById('userst'), {
     // descending: true
   });
-</script>
+</script> -->
 
 
 
@@ -393,6 +393,6 @@ margin-left: -25px;
 
 
 <?php
-            require_once("src/blocks/footer.php");
-    ?>
+    require_once("src/blocks/footer.php");
+?>
 </html>

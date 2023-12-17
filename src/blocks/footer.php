@@ -16,6 +16,7 @@
     }
     .footer-href:hover{
       background-color: #8e78f7;
+      color: white;
     }
     
 </style>
