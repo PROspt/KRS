@@ -49,7 +49,9 @@
         <a href="index.php">  
       <img src="images/logo-black.svg" alt=""></a>
     <div class="head-navbar">
-      <?php
+     
+     
+     <?php
         include("src/actions/db_connect.php");
         
         // Проверяем, была ли отправлена форма входа
@@ -104,7 +106,6 @@
 
 
 <?php
-    include("src/actions/db_connect.php");
     if(isset($_POST['submit-btn'])) {
         if(!empty($_POST['login']) && !empty($_POST['password']) ) {
             $login = $_POST['login'];
@@ -166,9 +167,3 @@
         echo $error;
     }
 ?>
-
-
-
-
-<main id="main">
-      
