@@ -16,11 +16,6 @@ $message = $_POST['message'];
 //   $attachments = '';
 // }
 
-$access_token= 'vk1.a.aAz5tHYt0nKptpfVUnHkgYdZ9LqhbjEoYAxeWYuF1tr1SpijfnMEMl1d8F3ybeAS9VGyuaACfSkiq1O_wxd559LgKedeBCdb_E849RPpFYE5tv3aGWV7Y-DwgHF0cJ7mao2gHSfAzqf7cPNxJijIidlRgFSZrBD55otodyUrD_AWTQR57j6kZWcwMkD86';
-
-
-
-
 // Параметры для добавления поста
 $params = array(
   'owner_id' => '-' . $groupId,

@@ -38,7 +38,7 @@
 
       <a href="admin.php" class="footer-href">Переход в админ</a>
       <a href="index.php" class="footer-href">Переход домой</a>
-      <a href="vk_connect.php" class="footer-href">Переход вк</a>
+      <a href="wall-post.php" class="footer-href">Переход вк</a>
 
     </footer>
     </html>
