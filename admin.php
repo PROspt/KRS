@@ -149,44 +149,62 @@ exit();
 
 <!-- Здесь Постинг-->
 <div class="info-block" id="postingBlock">
-  <div class="settings-div">
-    <form action="" method="post">
-      <input type="text" name="token_tg" placeholder="Токен телеграм бота" value="<?php echo $token_tg; ?>">
-      <input type="text" name="token_vk" placeholder="acces_token Вконтакте" value="<?php echo $token_vk; ?>">
-      <button type="submit" name = "replace_token">Обновить</button>
-      <p>э</p>
+  <div class="settings-div" style="display:block">
+  <h2>Постинг в Социальные сети</h2>
+  <button type="button" style="width:90px " onclick="addNewField()">добавить еще</button>
 
       <div id="send-post-div">
         <form action="src/actions/post.php", method="post">
-            <input type="text" name="token-vk" placeholder="Токен вк">
-            <input type="text" name="token-tg" placeholder="Токен тг">
-            <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>">
-
+        <div id="group-fields">
+            <span style="display: flex;">
+            <? echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';?>
+    <input type="text"  style="
+    margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo $groupId?>">
+    <input type="text" name="chat_id-tg" placeholder="id канала/username" value="@devrelhack2">
+</span>
+        </div>
 <style>
 .img_icon_pref{
-width: 32px;
-height: 32px;
-}
-#pref{
-  border: 2px solid black;
-  width: 300px;
-  height: 40px;
+width: 20px; 
+height: 20px; 
+margin-right: 5px;
+margin-left: -25px;
 }
 </style>
-            <div id="pref">
-              <?
-              echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';
-              echo $groupId;
-              ?>
-            </div>
-
-            <input type="text" name="chat_id-tg" placeholder="id канала">
-            <textarea name="text" id="" cols="30" rows="10" placeholder="Текст"></textarea>
+            <textarea name="text" id="" cols="30" rows="5" placeholder="Текст" style="width:940px"></textarea>
             <button type="submit">Отправить</button>
-        </form>
+        
     </div>
 
+    <script>
+   function addNewField() {
+    var groupFields = document.getElementById("group-fields");
 
+    var newField = document.createElement("span");
+
+    var imgElement = document.createElement("img");
+    imgElement.classList.add("img_icon_pref");
+    imgElement.src = "";
+    
+    var inputElement_tg = document.createElement("input");
+    inputElement_tg.type = "text";
+    inputElement_tg.placeholder = "id канала/username";
+    inputElement_tg.name = "chat_id-vk";
+    
+    var inputElement_vk = document.createElement("input");
+    inputElement_vk.type = "text";
+    inputElement_vk.placeholder = "id паблика";
+    inputElement_vk.name = "chat_id-tg";
+    
+
+
+    newField.appendChild(imgElement);
+    newField.appendChild(inputElement_vk); 
+    newField.appendChild(inputElement_tg);
+    
+    groupFields.appendChild(newField);
+  }
+</script>
 
 
 
@@ -206,35 +224,7 @@ height: 32px;
  <!-- Здесь БАЗА-->
 <div class="info-block" id="databaseBlock" style="display: none">
 <div class="div-table">
-                            <table id="userst" class="table">
-                            <caption></caption>
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach($users as $row):?>
-                                    <tr>
-                                      <td><?= $row['id']; ?></td>
-                                      <td><?= $row['first_name']; ?></td>
-                                      <td><?= $row['last_name']; ?></td>
-                                      <td><?= $sum = 0;
-                                    foreach($user_event as $row2) {
-                                      if ($row2["id_user"] == $row['id']) {
-                                        $sum += $row2["exp"];
-                                      }
-                                    } 
-                                    
-                                    echo $sum;?></td>
 
-                                    </tr>
-                                <?php endforeach;?>
-                            </tbody>
-                            </table>
                             </div>  
 </div>
 
@@ -249,35 +239,65 @@ height: 32px;
     </div>
 </body>
 
-<table id="table_text">
+
+
+<table id="table_text" class="table">
+<!-- <table id="table_text">
   <thead>
     <tr>
-      <th>лол</th>
-      <th>лол2</th>
-      <th>лол3</th>
+      <th>#</th>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Баллы</th>
+      <th>email</th>
+      <th>Роль</th>
+      <th>Телефон</th>
+      <th>telegramm</th>
+      <th>vk</th>
+      <th>Работа</th>
+      <th>Дата Рождения</th>
     </tr>
   </thead>
   <tbody>
+  <?php foreach($users as $row):?>
     <tr>
-      <td>12</td>
-      <td>25</td>
-      <td>14</td>
+      <td><?= $row['id']; ?></td>
+      <td><?= $row['first_name']; ?></td>
+      <td><?= $row['last_name']; ?></td>
+      <td>
+        <?= $sum = 0;
+                                    foreach($user_event as $row2) {
+                                      if ($row2["id_user"] == $row['id']) {
+                                        $sum += $row2["exp"];
+                                      }
+                                    } 
+                                    
+                                    echo $sum;?>
+      </td>
+      <td><?= $row["email"]; ?></td>
+      <td><?= $row["role"]; ?></td>
+      <td><?= $row["phone"]; ?></td>
+      <td><?= $row["telegram"]; ?></td>
+      <td><?= $row["vk"]; ?></td>
+      <td><?= $row["job"]; ?></td>
+      <td><?= $row["date_birth"]; ?></td>
     </tr>
-    <tr>
+  <?php endforeach;?>
+    <!-- <tr>
       <td>14</td>
       <td>82</td>
       <td>11</td>
-    </tr>
+    </tr> -->
   </tbody>
-</table>
+</table> -->
 
-<script>
+<!-- <script>
   new Tablesort(document.getElementById('table_text'));
 
   new Tablesort(document.getElementById('userst'), {
     // descending: true
   });
-</script>
+</script> -->
 
 
 
@@ -361,7 +381,18 @@ height: 32px;
 
     // Открытие вкладки "База" по умолчанию
     databaseTab.click();
+    databaseTab.addEventListener("click", function () {
+      document.getElementById("table_text").style.display = "table";
+    })
+    requestsTab.addEventListener("click", function () {
+      document.getElementById("table_text").style.display = "none";
+    })
+    postingTab.addEventListener("click", function () {
+      document.getElementById("table_text").style.display = "none";
+    })
   });
+
+
 </script>
 
 
@@ -375,6 +406,6 @@ height: 32px;
 
 
 <?php
-            require_once("src/blocks/footer.php");
-    ?>
+    require_once("src/blocks/footer.php");
+?>
 </html>
