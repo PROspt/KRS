@@ -1,5 +1,7 @@
 <?php
 
+require "db_connect.php";
+
 $url = 'http://185.185.68.228:5000/send/message/vk?';
 $data = ['token' => $_POST['token-vk'], 'channel_id' => $_POST['chat_id-vk'], 'text' => $_POST['text']];
 // $data = ['key1' => 'value1', 'key2' => 'value2'];

@@ -3,6 +3,7 @@
     
     include("src/actions/db_connect.php");
     include("vk_connect.php");
+    include("vk_connect.php");
     $stmt = $pdo->prepare("SELECT * FROM users");
     $stmt->execute();
     $users = $stmt->fetchAll();
@@ -99,6 +100,16 @@ exit();
 
 
 
+  <div class="div-navbar-item " id="emailTab">
+    <img class="navbar-icon" xmlns="images/mail.svg" width="31" height="31" viewBox="0 0 31 31">
+
+</img>
+    Рассылка email
+  </div>
+
+
+
+
   <div class="div-navbar-item " id="databaseTab">
     <svg class="navbar-icon" xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
     <g clip-path="url(#clip0_78_500)">
@@ -138,6 +149,25 @@ exit();
 <div class="info-block" id="emailBlock">
   <div class="settings-div">
   
+       
+  <form action="/src/actions/send.php">
+    <textarea name="mail-doc" cols="30" rows="10"></textarea>
+  </form>
+
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Здесь рассылка для мыла-->
+<div class="info-block" id="emailBlock">
+  <div class="settings-div">
+  
       <P>СЮДА МОЖЕШЬЬЧТО ХОТЬ ПИСАТЬ И ПИПИСЬКА ДА</P>
     
   </div>
@@ -155,23 +185,30 @@ exit();
 
       <div id="send-post-div">
         <form action="src/actions/post.php", method="post">
-        <div id="group-fields">
-            <span style="display: flex;">
-            <? echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';?>
-    <input type="text"  style="
-    margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo $groupId?>">
-    <input type="text" name="chat_id-tg" placeholder="id канала/username" value="@devrelhack2">
-</span>
-        </div>
+            <input type="text" name="token-vk" placeholder="Токен вк">
+            <input type="text" name="token-tg" placeholder="Токен тг">
+            <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>">
+
 <style>
 .img_icon_pref{
-width: 20px; 
-height: 20px; 
-margin-right: 5px;
-margin-left: -25px;
+width: 32px;
+height: 32px;
+}
+#pref{
+  border: 2px solid black;
+  width: 300px;
+  height: 40px;
 }
 </style>
-            <textarea name="text" id="" cols="30" rows="5" placeholder="Текст" style="width:940px"></textarea>
+            <div id="pref">
+              <?
+              echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';
+              echo $groupId;
+              ?>
+            </div>
+
+            <input type="text" name="chat_id-tg" placeholder="id канала">
+            <textarea name="text" id="" cols="30" rows="10" placeholder="Текст"></textarea>
             <button type="submit">Отправить</button>
         
     </div>
@@ -224,7 +261,35 @@ margin-left: -25px;
  <!-- Здесь БАЗА-->
 <div class="info-block" id="databaseBlock" style="display: none">
 <div class="div-table">
+                            <table id="userst" class="table">
+                            <caption></caption>
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($users as $row):?>
+                                    <tr>
+                                      <td><?= $row['id']; ?></td>
+                                      <td><?= $row['first_name']; ?></td>
+                                      <td><?= $row['last_name']; ?></td>
+                                      <td><?= $sum = 0;
+                                    foreach($user_event as $row2) {
+                                      if ($row2["id_user"] == $row['id']) {
+                                        $sum += $row2["exp"];
+                                      }
+                                    } 
+                                    
+                                    echo $sum;?></td>
 
+                                    </tr>
+                                <?php endforeach;?>
+                            </tbody>
+                            </table>
                             </div>  
 </div>
 
@@ -239,54 +304,25 @@ margin-left: -25px;
     </div>
 </body>
 
-
-
-<table id="table_text" class="table">
+<table id="table_text">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Имя</th>
-      <th>Фамилия</th>
-      <th>Баллы</th>
-      <th>email</th>
-      <th>Роль</th>
-      <th>Телефон</th>
-      <th>telegramm</th>
-      <th>vk</th>
-      <th>Работа</th>
-      <th>Дата Рождения</th>
+      <th>лол</th>
+      <th>лол2</th>
+      <th>лол3</th>
     </tr>
   </thead>
   <tbody>
-  <?php foreach($users as $row):?>
     <tr>
-      <td><?= $row['id']; ?></td>
-      <td><?= $row['first_name']; ?></td>
-      <td><?= $row['last_name']; ?></td>
-      <td>
-        <?= $sum = 0;
-                                    foreach($user_event as $row2) {
-                                      if ($row2["id_user"] == $row['id']) {
-                                        $sum += $row2["exp"];
-                                      }
-                                    } 
-                                    
-                                    echo $sum;?>
-      </td>
-      <td><?= $row["email"]; ?></td>
-      <td><?= $row["role"]; ?></td>
-      <td><?= $row["phone"]; ?></td>
-      <td><?= $row["telegram"]; ?></td>
-      <td><?= $row["vk"]; ?></td>
-      <td><?= $row["job"]; ?></td>
-      <td><?= $row["date_birth"]; ?></td>
+      <td>12</td>
+      <td>25</td>
+      <td>14</td>
     </tr>
-  <?php endforeach;?>
-    <!-- <tr>
+    <tr>
       <td>14</td>
       <td>82</td>
       <td>11</td>
-    </tr> -->
+    </tr>
   </tbody>
 </table>
 
@@ -317,6 +353,8 @@ margin-left: -25px;
     var postingBlock = document.getElementById('postingBlock');
     var emailTab = document.getElementById('emailTab');
     var emailBlock = document.getElementById('emailBlock');
+    var emailTab = document.getElementById('emailTab');
+    var emailBlock = document.getElementById('emailBlock');
 
     
     //  для отображения информации для выбранного раздела
@@ -334,6 +372,10 @@ margin-left: -25px;
       }else if (section === 'postingTab'){
         infoBlock.innerHTML = '<p>Информация о разделе "Настройки"...</p>';
         infoBlock.innerHTML = postingBlock.innerHTML;
+      }else if( section ==='emailTab')
+      {
+        infoBlock.innerHTML = '<p>Информация о разделе "email рассылка"...</p>';
+        infoBlock.innerHTML = emailBlock.innerHTML;
       }else if( section ==='emailTab')
       {
         infoBlock.innerHTML = '<p>Информация о разделе "email рассылка"...</p>';
@@ -375,6 +417,14 @@ margin-left: -25px;
       showInfoForSection('emailTab');
     });
 
+    emailTab.addEventListener('click', function() {
+      emailTab.classList.add('active', 'div-navbar-item-enable');
+      postingTab.classList.remove('active', 'div-navbar-item-enable');
+      requestsTab.classList.remove('active', 'div-navbar-item-enable');
+      databaseTab.classList.remove('active', 'div-navbar-item-enable');
+      showInfoForSection('emailTab');
+    });
+
     // Открытие вкладки "База" по умолчанию
     databaseTab.click();
     databaseTab.addEventListener("click", function () {
@@ -393,6 +443,7 @@ margin-left: -25px;
   });
 
 
+  });
 </script>
 
 
