@@ -164,7 +164,7 @@ exit();
             <span style="display: flex;">
             <? echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';?>
     <input type="text"  style="
-    margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo $groupId?>">
+    margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo '-' ;echo $groupId?>">
     <input type="text" name="chat_id-tg" placeholder="id канала/username" value="@devrelhack2">
 </span>
         </div>
@@ -180,10 +180,6 @@ margin-left: -25px;
             <button type="submit">Отправить</button>
         
     </div>
-
-    <script>
-   function addNewField() {
-    var groupFields = document.getElementById("group-fields");
 
     <script>
   function addNewField() {
@@ -203,31 +199,13 @@ margin-left: -25px;
     inputElement_vk.type = "text";
     inputElement_vk.placeholder = "id паблика";
     inputElement_vk.name = "chat_id-tg";
-    
-
-
+  
     newField.appendChild(imgElement);
     newField.appendChild(inputElement_vk); 
     newField.appendChild(inputElement_tg);
     
     groupFields.appendChild(newField);
-  }
-</script>
-
-    var newField = document.createElement("span");
-
-    var imgElement = document.createElement("img");
-    imgElement.classList.add("img_icon_pref");
-    imgElement.src = "путь_к_вашей_иконке";
-    
-    var inputElement_vk = document.createElement("input");
-    inputElement_vk.type = "text";
-    inputElement_vk.placeholder = "id паблика";
-    
-    newField.appendChild(imgElement);
-    newField.appendChild(inputElement);
-    
-    groupFields.appendChild(newField);
+  
   }
 </script>
 
