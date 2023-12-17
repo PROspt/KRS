@@ -83,16 +83,40 @@ exit();
                 </div>
 
   <div class="div-navbar-item " id="postingTab">
-    <img class="navbar-icon" xmlns="images/mail.svg" width="31" height="31" viewBox="0 0 31 31">
-
-</img>
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+  <g clip-path="url(#clip0_130_410)">
+    <mask id="mask0_130_410" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
+      <path d="M30 0H0V30H30V0Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask0_130_410)">
+      <path d="M25 5H5C3.61875 5 2.5125 6.11875 2.5125 7.5L2.5 22.5C2.5 23.8813 3.61875 25 5 25H25C26.3813 25 27.5 23.8813 27.5 22.5V7.5C27.5 6.11875 26.3813 5 25 5ZM25 10L15 16.25L5 10V7.5L15 13.75L25 7.5V10Z" fill="#616161"/>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="clip0_130_410">
+      <rect width="30" height="30" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
     Постинг
   </div>
 
   <div class="div-navbar-item " id="emailTab">
-    <img class="navbar-icon" xmlns="images/mail.svg" width="31" height="31" viewBox="0 0 31 31">
-
-</img>
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+  <g clip-path="url(#clip0_130_410)">
+    <mask id="mask0_130_410" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
+      <path d="M30 0H0V30H30V0Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask0_130_410)">
+      <path d="M25 5H5C3.61875 5 2.5125 6.11875 2.5125 7.5L2.5 22.5C2.5 23.8813 3.61875 25 5 25H25C26.3813 25 27.5 23.8813 27.5 22.5V7.5C27.5 6.11875 26.3813 5 25 5ZM25 10L15 16.25L5 10V7.5L15 13.75L25 7.5V10Z" fill="#616161"/>
+    </g>
+  </g>
+  <defs>
+    <clipPath id="clip0_130_410">
+      <rect width="30" height="30" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
     Рассылка email
   </div>
 
@@ -123,9 +147,14 @@ exit();
 <div class="info-block" id="paramsBlock">
   <div class="settings-div">
     <form action="" method="post">
-      <input type="text" name="token_tg" placeholder="Токен телеграм бота" value="<?php echo $token_tg; ?>">
-      <input type="text" name="token_vk" placeholder="acces_token Вконтакте" value="<?php echo $token_vk; ?>">
-      <button type="submit" name = "replace_token">Обновить</button>
+      <label style="font-size: 20px" name="mail-doc" for="tgtoken-input" class="form-label">Токен тг бота</label>
+
+      <input type="text" id="tgtoken-input"style="width:600px" class="form-control" name="token_tg" placeholder="Токен телеграм бота" value="<?php echo $token_tg; ?>">
+
+      <label style="font-size: 20px;  margin-top: 30px" name="mail-doc" for="vktoken-input" class="form-label">Введите текст для отправки письма (html теги можна)</label>
+      <input type="text" id="vktoken-input" style="width:600px;"class="form-control" name="token_vk" placeholder="acces_token Вконтакте" value="<?php echo $token_vk; ?>">
+      
+      <button type="submit"class="btn btn-light" name = "replace_token">Обновить</button>
     </form>
   </div>
 </div>
@@ -140,8 +169,12 @@ exit();
   
        
   <form action="/src/actions/send.php", method="post">
-    <textarea name="mail-doc" cols="30" rows="10"></textarea>
-    <button type="submit">Отправить письмо</button>
+
+    <div class="mb-3">
+      <label style="font-size: 20px" name="mail-doc" for="exampleFormControlTextarea1" class="form-label">Введите текст для отправки письма (html теги можна)</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button class="btn btn-light" type="submit">Отправить письма</button>
   </form>
 
     
@@ -156,16 +189,16 @@ exit();
 <div class="info-block" id="postingBlock">
   <div class="settings-div" style="display:block">
   <h2>Постинг в Социальные сети</h2>
-  <button type="button" style="width:90px " onclick="addNewField()">добавить еще</button>
+  <button class="btn btn-light" type="button" style="width:90px " onclick="addNewField()">добавить еще</button>
 
       <div id="send-post-div">
         <form action="src/actions/post.php", method="post">
         <div id="group-fields">
             <span style="display: flex;">
             <? echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';?>
-    <input type="text"  style="
+    <input type="text" class="form-control" style="
     margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo '-' ;echo $groupId?>">
-    <input type="text" name="chat_id-tg" placeholder="id канала/username" value="@devrelhack2">
+    <input type="text" class="form-control" name="chat_id-tg" placeholder="id канала/username" value="@devrelhack2">
 </span>
         </div>
 <style>
@@ -176,8 +209,8 @@ margin-right: 5px;
 margin-left: -25px;
 }
 </style>
-            <textarea name="text" id="" cols="30" rows="5" placeholder="Текст" style="width:940px"></textarea>
-            <button type="submit">Отправить</button>
+            <textarea class="form-control" name="text" id="" cols="30" rows="5" placeholder="Текст" style="width:940px"></textarea>
+            <button class="btn btn-light" type="submit">Отправить</button>
         
     </div>
 
