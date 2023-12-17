@@ -1,6 +1,7 @@
 <?
 require "db_connect.php";
 require "../../admin.php";
+require __DIR__."../helpers.php";
 $url = 'http://185.185.68.228:5000/send/message/vk?';
 $data = ['token' => $token_vk, 'channel_id' => $_POST['chat_id-vk'], 'text' => $_POST['text']];
 // $data = ['key1' => 'value1', 'key2' => 'value2'];
@@ -37,6 +38,6 @@ if ($result === false) {
 
 print_r($result);
 
-
+redirect('/admin.php')
 
 ?>
