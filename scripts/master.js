@@ -16,3 +16,12 @@ login.addEventListener("click", () => {
 
 
 
+// Открытие модального окна
+document.querySelector('#buttonscript').addEventListener('click', function () {
+  document.querySelector('#forma').style.display = 'flex';
+});
+
+// Закрытие модального окна
+document.querySelector('#zakroi').addEventListener('click', function () {
+  document.querySelector('#forma').style.display = 'none';
+});

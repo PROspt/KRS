@@ -43,6 +43,8 @@
     align-items: center;
   }
 </style>
+<!-- подключение скрипта -->
+<script src="../scripts/master.js"></script>
 
 <header class="header">
   <div class="head-container">
@@ -89,7 +91,8 @@
       <!-- Отображаем кнопку входа, если пользователь не авторизован -->
       <div class="head-login">
         <img src="images/person.svg" alt="">
-        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal">
+        <!-- кнопка, с помощью которой должен сработать скрипт -->
+        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal" id="buttonscript">
       </div>
       <?php
         }
@@ -141,24 +144,27 @@
 
 
 
+<!-- специально делаю в диве, как в примере -->
+<div id="forma"  class="login-container">
+  <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+      <div class="container-white">
+        <h1 class="title_reg">Вход в систему</h1>
+        <section class="email">
+          <label for="email" class="label">Адрес эл. почты</label>
+          <input type="text" name="login" required class="input">
+        </section>
+        <section class="password">
+          <label for="password" class="label">Пароль</label>
+          <input type="password" name="password" class="input" required>
+          <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
+        </section>
+        <section class="button-text">
+        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" id="zakroi">
+        </section>
+      </div>
+  </form>
+</div>
 
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="login-container">
-    <div class="container-white">
-      <h1 class="title_reg">Вход в систему</h1>
-      <section class="email">
-        <label for="email" class="label">Адрес эл. почты</label>
-        <input type="text" name="login" required class="input">
-      </section>
-      <section class="password">
-        <label for="password" class="label">Пароль</label>
-        <input type="password" name="password" class="input" required>
-        <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
-      </section>
-      <section class="button-text">
-      <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
-      </section>
-    </div>
-</form>
 
 <?php 
     }
