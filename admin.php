@@ -242,7 +242,6 @@ margin-left: -25px;
 
 
 <table id="table_text" class="table">
-<!-- <table id="table_text">
   <thead>
     <tr>
       <th>#</th>
@@ -289,15 +288,12 @@ margin-left: -25px;
       <td>11</td>
     </tr> -->
   </tbody>
-</table> -->
+</table>
 
-<!-- <script>
+<script>
   new Tablesort(document.getElementById('table_text'));
 
-  new Tablesort(document.getElementById('userst'), {
-    // descending: true
-  });
-</script> -->
+</script>
 
 
 
@@ -388,6 +384,10 @@ margin-left: -25px;
       document.getElementById("table_text").style.display = "none";
     })
     postingTab.addEventListener("click", function () {
+      document.getElementById("table_text").style.display = "none";
+    })
+
+    emailTab.addEventListener("click", function () {
       document.getElementById("table_text").style.display = "none";
     })
   });
