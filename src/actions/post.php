@@ -38,6 +38,7 @@ if ($result === false) {
 
 print_r($result);
 
-redirect('/admin.php')
+
+echo '<script>window.location.href = "../../admin.php";</script>';
 
 ?>
