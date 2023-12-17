@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/master.css">
     <title>KRS</title>
+    <!-- подключение скрипта -->
+<script src="../scripts/master.js"></script>
+
     
 </head>
 
@@ -43,6 +46,7 @@
     align-items: center;
   }
 </style>
+
 
 <header class="header">
   <div class="head-container">
@@ -89,7 +93,8 @@
       <!-- Отображаем кнопку входа, если пользователь не авторизован -->
       <div class="head-login">
         <img src="images/person.svg" alt="">
-        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal">
+        <!-- кнопка, с помощью которой должен сработать скрипт -->
+        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal" id="openModalButton" onclick="">
       </div>
       <?php
         }
@@ -100,6 +105,105 @@
     </div>
   </div>
 </header>
+
+
+
+<div id="modalContainer">
+  <div id="modalContent">
+
+  <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+  <div class="container-white">
+        <h1 class="title_reg">Вход в систему</h1>
+        <section class="email">
+          <label for="email" class="label">Адрес эл. почты</label>
+          <input type="text" name="login" required class="input">
+        </section>
+        <section class="password">
+          <label for="password" class="label">Пароль</label>
+          <input type="password" name="password" class="input" required>
+          <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
+        </section>
+        <section class="button-text">
+        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" id="zakroi">
+        </section>
+      </div>
+  </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <button id="closeModalButton">Закрыть</button>
+  </div>
+</div>
+
+
+<style>
+  #modalContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+#modalContent {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#closeModalButton {
+  margin-top: 10px;
+}
+
+</style>
+
+
+<script>
+var openModalButton = document.getElementById("openModalButton");
+var modalContainer = document.getElementById("modalContainer");
+var closeModalButton = document.getElementById("closeModalButton");
+
+openModalButton.addEventListener("click", function() {
+  modalContainer.style.display = "flex";
+});
+
+closeModalButton.addEventListener("click", function() {
+  modalContainer.style.display = "none";
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -141,24 +245,6 @@
 
 
 
-
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="login-container">
-    <div class="container-white">
-      <h1 class="title_reg">Вход в систему</h1>
-      <section class="email">
-        <label for="email" class="label">Адрес эл. почты</label>
-        <input type="text" name="login" required class="input">
-      </section>
-      <section class="password">
-        <label for="password" class="label">Пароль</label>
-        <input type="password" name="password" class="input" required>
-        <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
-      </section>
-      <section class="button-text">
-      <input type="submit" name="submit-btn" value="Войти" class="submit-btn">
-      </section>
-    </div>
-</form>
 
 <?php 
     }
