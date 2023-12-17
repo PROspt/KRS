@@ -1,5 +1,4 @@
-<?php
-
+<?
 require "db_connect.php";
 require "../../admin.php";
 $url = 'http://185.185.68.228:5000/send/message/vk?';
