@@ -56,6 +56,14 @@
      
      
      <?php
+$currentURL = $_SERVER['REQUEST_URI'];
+
+// Проверка, является ли текущий URL страницей admin.php
+if (strpos($currentURL, "admin.php") !== false) {
+    echo '<style>#openModalButton { display: none; }</style>';
+}
+
+
         include("src/actions/db_connect.php");
         
         // Проверяем, была ли отправлена форма входа
@@ -82,7 +90,7 @@
       <!-- Отображаем ссылку на выход, если пользователь авторизован -->
       <a href="?log=out" class="head-login">
         <img src="images/person.svg" alt="">
-        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal">
+        <input type="submit" name="submit-btn" value="Выйти" class="submit-btn" data-modal-target="authorization-modal">
       </a>
       <?php
           if($_GET['log'] == 'out'){
@@ -94,10 +102,7 @@
       <div class="head-login">
         <img src="images/person.svg" alt="">
         <!-- кнопка, с помощью которой должен сработать скрипт -->
-        <input type="submit" name="submit-btn" value="ВЫЙТИ" class="submit-btn" data-modal-target="authorization-modal" id="ex">
-        <script>document.getElementById("ex").addEventListener("click", function() {
-  window.location.href = "index.php";
-}); </script>
+        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal" id="openModalButton" >
       </div>
       <?php
         }
@@ -108,7 +113,12 @@
     </div>
   </div>
 </header>
+<script>
+document.getElementById("zakroi").addEventListener("click", function() {
+  window.location.href = "admin.php";
+});
 
+</script>
 
 
 <div id="modalContainer">
