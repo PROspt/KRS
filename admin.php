@@ -161,35 +161,7 @@ exit();
  <!-- Здесь БАЗА-->
 <div class="info-block" id="databaseBlock" style="display: none">
 <div class="div-table">
-                            <table id="userst" class="table">
-                            <caption></caption>
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>1</th>
-                                <th>2</th>
-                                <th>3</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach($users as $row):?>
-                                    <tr>
-                                      <td><?= $row['id']; ?></td>
-                                      <td><?= $row['first_name']; ?></td>
-                                      <td><?= $row['last_name']; ?></td>
-                                      <td><?= $sum = 0;
-                                    foreach($user_event as $row2) {
-                                      if ($row2["id_user"] == $row['id']) {
-                                        $sum += $row2["exp"];
-                                      }
-                                    } 
-                                    
-                                    echo $sum;?></td>
 
-                                    </tr>
-                                <?php endforeach;?>
-                            </tbody>
-                            </table>
                             </div>  
 </div>
 
@@ -204,25 +176,54 @@ exit();
     </div>
 </body>
 
-<table id="table_text">
+
+
+<table id="table_text" class="table">
   <thead>
     <tr>
-      <th>лол</th>
-      <th>лол2</th>
-      <th>лол3</th>
+      <th>#</th>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Баллы</th>
+      <th>email</th>
+      <th>Роль</th>
+      <th>Телефон</th>
+      <th>telegramm</th>
+      <th>vk</th>
+      <th>Работа</th>
+      <th>Дата Рождения</th>
     </tr>
   </thead>
   <tbody>
+  <?php foreach($users as $row):?>
     <tr>
-      <td>12</td>
-      <td>25</td>
-      <td>14</td>
+      <td><?= $row['id']; ?></td>
+      <td><?= $row['first_name']; ?></td>
+      <td><?= $row['last_name']; ?></td>
+      <td>
+        <?= $sum = 0;
+                                    foreach($user_event as $row2) {
+                                      if ($row2["id_user"] == $row['id']) {
+                                        $sum += $row2["exp"];
+                                      }
+                                    } 
+                                    
+                                    echo $sum;?>
+      </td>
+      <td><?= $row["email"]; ?></td>
+      <td><?= $row["role"]; ?></td>
+      <td><?= $row["phone"]; ?></td>
+      <td><?= $row["telegram"]; ?></td>
+      <td><?= $row["vk"]; ?></td>
+      <td><?= $row["job"]; ?></td>
+      <td><?= $row["date_birth"]; ?></td>
     </tr>
-    <tr>
+  <?php endforeach;?>
+    <!-- <tr>
       <td>14</td>
       <td>82</td>
       <td>11</td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 
@@ -298,7 +299,18 @@ exit();
 
     // Открытие вкладки "База" по умолчанию
     databaseTab.click();
+    databaseTab.addEventListener("click", function () {
+      document.getElementById("table_text").style.display = "table";
+    })
+    requestsTab.addEventListener("click", function () {
+      document.getElementById("table_text").style.display = "none";
+    })
+    postingTab.addEventListener("click", function () {
+      document.getElementById("table_text").style.display = "none";
+    })
   });
+
+
 </script>
 
 
