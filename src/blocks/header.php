@@ -82,7 +82,7 @@
       <!-- Отображаем ссылку на выход, если пользователь авторизован -->
       <a href="?log=out" class="head-login">
         <img src="images/person.svg" alt="">
-        <input type="submit" name="submit-btn" value="Выйти" class="submit-btn" data-modal-target="authorization-modal">
+        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal">
       </a>
       <?php
           if($_GET['log'] == 'out'){
@@ -94,7 +94,10 @@
       <div class="head-login">
         <img src="images/person.svg" alt="">
         <!-- кнопка, с помощью которой должен сработать скрипт -->
-        <input type="submit" name="submit-btn" value="Войти" class="submit-btn" data-modal-target="authorization-modal" id="openModalButton" onclick="">
+        <input type="submit" name="submit-btn" value="ВЫЙТИ" class="submit-btn" data-modal-target="authorization-modal" id="ex">
+        <script>document.getElementById("ex").addEventListener("click", function() {
+  window.location.href = "index.php";
+}); </script>
       </div>
       <?php
         }
@@ -228,23 +231,16 @@ closeModalButton.addEventListener("click", function() {
     }
 
     if(isset($_GET['log']) && $_GET['log'] == 'out'){
-        unset($_SESSION['user']);
+        unset($_SESSION['login']);
     }
 
     if(isset($_SESSION['user'])){
         echo $_SESSION['user']['login'];
-        ?>
-        <div class="head-login">
-            <img src="images/person.svg" alt="">
-            <a href="?log=out">Выход</a>
-        </div>
-        <?php
+       if ($_SESSION['user']['login']  =="admin"){
+       header("Location: admin.php");
+       }
     } else {
 ?>
-
-
-
-
 
 <?php 
     }

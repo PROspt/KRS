@@ -29,9 +29,9 @@
 
       <p>&copy; 2024 РОГАТЫЙ СКОТ. Все права защищены.</p>
 
-      <a href= "admin.php" class="footer-href">Переход в админ</a>
+      <!-- <a href= "admin.php" class="footer-href">Переход в админ</a>
       <a href= "index.php" class="footer-href">Переход домой</a>
-      <a href= "wall-post.php" class="footer-href">Переход вк</a>
+      <a href= "wall-post.php" class="footer-href">Переход вк</a> -->
 
     </footer>
     </html>
