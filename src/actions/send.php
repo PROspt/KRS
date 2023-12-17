@@ -45,6 +45,11 @@ foreach($emails as $us){
 
 
 };
-header("Location: /admin.php");
-exit( );
+if ($mail->send()) { // отправляем письмо
+    header("Location: /admin.php");
+    exit( );
+} else {
+    echo 'Ошибка: ' . $mail->ErrorInfo;
+}
+
 ?>

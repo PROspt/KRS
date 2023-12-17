@@ -171,8 +171,8 @@ exit();
   <form action="/src/actions/send.php", method="post">
 
     <div class="mb-3">
-      <label style="font-size: 20px" name="mail-doc" for="exampleFormControlTextarea1" class="form-label">Введите текст для отправки письма (html теги можна)</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label style="font-size: 20px"  for="exampleFormControlTextarea1" class="form-label">Введите текст для отправки письма (html теги можна)</label>
+      <textarea class="form-control" name="mail-doc" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <button class="btn btn-light" type="submit">Отправить письма</button>
   </form>

@@ -45,6 +45,7 @@
     display: flex;
     align-items: center;
   }
+  
 </style>
 
 
@@ -124,16 +125,16 @@ document.getElementById("zakroi").addEventListener("click", function() {
 <div id="modalContainer">
   <div id="modalContent">
 
-  <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+  <form action="admin.php" method="post">
   <div class="container-white">
         <h1 class="title_reg">Вход в систему</h1>
         <section class="email">
           <label for="email" class="label">Адрес эл. почты</label>
-          <input type="text" name="login" required class="input">
+          <input style="height: 30px" type="text" name="login" required class="input">
         </section>
         <section class="password">
           <label for="password" class="label">Пароль</label>
-          <input type="password" name="password" class="input" required>
+          <input style="height: 30px" type="password" name="password" class="input" required>
           <img loading="lazy" src="images/eyes.svg" alt="Password Icon" id="img" />
         </section>
         <section class="button-text">
@@ -209,39 +210,39 @@ closeModalButton.addEventListener("click", function() {
 
 
 <?php
-    if(isset($_POST['submit-btn'])) {
-        if(!empty($_POST['login']) && !empty($_POST['password']) ) {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
-            $query = "SELECT * FROM users WHERE login='$login'";
-            $result = mysqli_query($db, $query) or die(mysqli_error($link));
-            $user = mysqli_fetch_assoc($result);
-            if(empty($user) || $password != $user['password']){
-                $error = 'Неверный логин или пароль';
-            } else {
-                $_SESSION['user'] = $user;
-            }
-        } else {
-            $error = 'Заполните все поля';
-        }
-    }
+    // if(isset($_POST['submit-btn'])) {
+    //     if(!empty($_POST['login']) && !empty($_POST['password']) ) {
+    //         $login = $_POST['login'];
+    //         $password = $_POST['password'];
+    //         $query = "SELECT * FROM users WHERE login='$login'";
+    //         $result = mysqli_query($db, $query) or die(mysqli_error($link));
+    //         $user = mysqli_fetch_assoc($result);
+    //         if(empty($user) || $password != $user['password']){
+    //             $error = 'Неверный логин или пароль';
+    //         } else {
+    //             $_SESSION['user'] = $user;
+    //         }
+    //     } else {
+    //         $error = 'Заполните все поля';
+    //     }
+    // }
 
-    if(isset($_GET['log']) && $_GET['log'] == 'out'){
-        unset($_SESSION['login']);
-    }
+    // if(isset($_GET['log']) && $_GET['log'] == 'out'){
+    //     unset($_SESSION['login']);
+    // }
 
-    if(isset($_SESSION['user'])){
-        echo $_SESSION['user']['login'];
-       if ($_SESSION['user']['login']  =="admin"){
-       header("Location: admin.php");
-       }
-    } else {
+    // if(isset($_SESSION['user'])){
+    //     echo $_SESSION['user']['login'];
+    //    if ($_SESSION['user']['login']  =="admin"){
+    //    header("Location: admin.php");
+    //    }
+    // } else {
 ?>
 
 <?php 
-    }
+    // }
 
-    if(isset($error)){
-        echo $error;
-    }
+    // if(isset($error)){
+    //     echo $error;
+    // }
 ?>
