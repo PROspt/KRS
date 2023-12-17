@@ -154,44 +154,50 @@ exit();
 <!-- Здесь Постинг-->
 <div class="info-block" id="postingBlock">
   <div class="settings-div">
-    <form action="" method="post">
-      <input type="text" name="token_tg" placeholder="Токен телеграм бота" value="<?php echo $token_tg; ?>">
-      <input type="text" name="token_vk" placeholder="acces_token Вконтакте" value="<?php echo $token_vk; ?>">
-      <button type="submit" name = "replace_token">Обновить</button>
-      <p>э</p>
+  <div id="group-fields">
+  <button type="button" onclick="addNewField()">добавить еще</button>
+      <div id="group-fields">
+      <span>
+        <img class="img_icon_pref" src="<?php echo $groupData['photo_200']; ?>">
+        <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?php echo $groupId; ?>">
+        <input type="text" name="chat_id-tg" placeholder="id канала/username">
+      </span>
+    </div>
 
-      <div id="send-post-div">
-        <form action="src/actions/post.php", method="post">
-            <input type="text" name="token-vk" placeholder="Токен вк">
-            <input type="text" name="token-tg" placeholder="Токен тг">
-            <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>">
 
 <style>
 .img_icon_pref{
 width: 32px;
 height: 32px;
 }
-#pref{
-  border: 2px solid black;
-  width: 300px;
-  height: 40px;
-}
-</style>
-            <div id="pref">
-              <?
-              echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';
-              echo $groupId;
-              ?>
-            </div>
 
-            <input type="text" name="chat_id-tg" placeholder="id канала">
-            <textarea name="text" id="" cols="30" rows="10" placeholder="Текст"></textarea>
+</style>
+            <textarea name="text" id="" cols="30" rows="5" style="width: 923px;" placeholder="Текст"></textarea>
             <button type="submit">Отправить</button>
-        </form>
+        
     </div>
 
 
+    <script>
+  function addNewField() {
+    var groupFields = document.getElementById("group-fields");
 
+    var newField = document.createElement("span");
+
+    var imgElement = document.createElement("img");
+    imgElement.classList.add("img_icon_pref");
+    imgElement.src = "путь_к_вашей_иконке";
+    
+    var inputElement_vk = document.createElement("input");
+    inputElement_vk.type = "text";
+    inputElement_vk.placeholder = "id паблика";
+    
+    newField.appendChild(imgElement);
+    newField.appendChild(inputElement);
+    
+    groupFields.appendChild(newField);
+  }
+</script>
 
 
 
