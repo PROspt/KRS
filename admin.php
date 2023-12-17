@@ -151,22 +151,18 @@ exit();
 <div class="info-block" id="postingBlock">
   <div class="settings-div" style="display:block">
   <h2>Постинг в Социальные сети</h2>
+  <button type="button" style="width:90px " onclick="addNewField()">добавить еще</button>
 
       <div id="send-post-div">
         <form action="src/actions/post.php", method="post">
-            <input type="text" name="token-vk" placeholder="Токен вк">
-            <input type="text" name="token-tg" placeholder="Токен тг">
-            <!-- <input type="text" name="chat_id-vk" placeholder="id паблика" value="<?echo $groupId?>"> -->
-
+        <div id="group-fields">
             <span style="display: flex;">
             <? echo'<img class="img_icon_pref" src="' . $groupData['photo_200'] . '">';?>
     <input type="text"  style="
     margin-right: 5px; "name="chat_id-vk" placeholder="id паблика" value="<?php echo $groupId?>">
-    <input type="text" name="chat_id-tg" placeholder="id канала">
+    <input type="text" name="chat_id-tg" placeholder="id канала/username" value="@devrelhack2">
 </span>
-
-
-
+        </div>
 <style>
 .img_icon_pref{
 width: 20px; 
@@ -174,21 +170,41 @@ height: 20px;
 margin-right: 5px;
 margin-left: -25px;
 }
-#pref{
-  border: 2px solid black;
-  width: 300px;
-  height: 40px;
-}
 </style>
-        
-
-            
             <textarea name="text" id="" cols="30" rows="5" placeholder="Текст" style="width:940px"></textarea>
             <button type="submit">Отправить</button>
         
     </div>
 
+    <script>
+   function addNewField() {
+    var groupFields = document.getElementById("group-fields");
 
+    var newField = document.createElement("span");
+
+    var imgElement = document.createElement("img");
+    imgElement.classList.add("img_icon_pref");
+    imgElement.src = "";
+    
+    var inputElement_tg = document.createElement("input");
+    inputElement_tg.type = "text";
+    inputElement_tg.placeholder = "id канала/username";
+    inputElement_tg.name = "chat_id-vk";
+    
+    var inputElement_vk = document.createElement("input");
+    inputElement_vk.type = "text";
+    inputElement_vk.placeholder = "id паблика";
+    inputElement_vk.name = "chat_id-tg";
+    
+
+
+    newField.appendChild(imgElement);
+    newField.appendChild(inputElement_vk); 
+    newField.appendChild(inputElement_tg);
+    
+    groupFields.appendChild(newField);
+  }
+</script>
 
 
 
