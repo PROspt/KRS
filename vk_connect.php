@@ -6,7 +6,7 @@
 <!-- Данные о группе -->
 <?php
 // Замените на ваши данные
-$accessToken = 'vk1.a.sHWfP7HbV8qsZSVAq6t9n2jnAKbgt4SOZvrV22AQEaXnOW9rbyyK86hRMVUuNwYApCNmiJBbFRX4qNZMf8iTxL6iSR1EOgKqICqHZswRElu5a4STlTp3-TjMNLCXrg2tyO-6IRwmCOdZ1uXjukFAlCIzjmpf3LPFCdnByX7fIvQOqeJST-VuOX1nv0mO-oHofalbeTg6iaS-hNiJt-LNIA'; // Токен доступа с правами на просмотр информации о группе
+$accessToken = ''; // Токен доступа с правами на просмотр информации о группе
 $groupId = '217529582'; // ID вашей группы
 
 // Параметры для получения информации о группе
